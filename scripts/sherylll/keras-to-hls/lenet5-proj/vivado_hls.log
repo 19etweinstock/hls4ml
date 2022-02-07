@@ -6,7 +6,7 @@
 
 source C:/Xilinx/Vivado/2020.1/scripts/vivado_hls/hls.tcl -notrace
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2020.1/bin/unwrapped/win64.o/vivado_hls.exe'
-INFO: [HLS 200-10] For user 'eweinstock6' on host 'mirc161-07' (Windows NT_amd64 version 6.2) on Mon Feb 07 18:17:43 -0500 2022
+INFO: [HLS 200-10] For user 'eweinstock6' on host 'mirc161-07' (Windows NT_amd64 version 6.2) on Mon Feb 07 18:59:08 -0500 2022
 INFO: [HLS 200-10] In directory 'C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/keras-to-hls/lenet5-proj'
 Sourcing Tcl script 'build_prj.tcl'
 INFO: [HLS 200-10] Opening and resetting project 'C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/keras-to-hls/lenet5-proj/lenet5_prj'.
@@ -21,3 +21,152 @@ INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
 ***** C SIMULATION *****
 INFO: [SIM 211-2] *************** CSIM start ***************
 INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../lenet5_test.cpp in debug mode
+   Compiling ../../../../firmware/lenet5.cpp in debug mode
+   Generating csim.exe
+In file included from C:/Xilinx/Vivado/2020.1/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
+                 from C:/Xilinx/Vivado/2020.1/include/hls_fpo.h:186,
+                 from C:/Xilinx/Vivado/2020.1/include/hls_half.h:44,
+                 from C:/Xilinx/Vivado/2020.1/include/etc/ap_private.h:90,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_common.h:641,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_int.h:54,
+                 from ../../../../firmware/parameters.h:4,
+                 from ../../../../lenet5_test.cpp:26:
+C:/Xilinx/Vivado/2020.1/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from C:/Xilinx/Vivado/2020.1/include/hls_fpo.h:186:0,
+                 from C:/Xilinx/Vivado/2020.1/include/hls_half.h:44,
+                 from C:/Xilinx/Vivado/2020.1/include/etc/ap_private.h:90,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_common.h:641,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_int.h:54,
+                 from ../../../../firmware/parameters.h:4,
+                 from ../../../../lenet5_test.cpp:26:
+C:/Xilinx/Vivado/2020.1/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+In file included from C:/Xilinx/Vivado/2020.1/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
+                 from C:/Xilinx/Vivado/2020.1/include/hls_fpo.h:186,
+                 from C:/Xilinx/Vivado/2020.1/include/hls_half.h:44,
+                 from C:/Xilinx/Vivado/2020.1/include/etc/ap_private.h:90,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_common.h:641,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_int.h:54,
+                 from ../../../../firmware/lenet5.h:23,
+                 from ../../../../firmware/lenet5.cpp:19:
+C:/Xilinx/Vivado/2020.1/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from C:/Xilinx/Vivado/2020.1/include/hls_fpo.h:186:0,
+                 from C:/Xilinx/Vivado/2020.1/include/hls_half.h:44,
+                 from C:/Xilinx/Vivado/2020.1/include/etc/ap_private.h:90,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_common.h:641,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_int.h:54,
+                 from ../../../../firmware/lenet5.h:23,
+                 from ../../../../firmware/lenet5.cpp:19:
+C:/Xilinx/Vivado/2020.1/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+0 1 7 7
+1 1 2 2
+2 1 1 1
+3 1 0 0
+4 1 4 4
+5 1 1 1
+6 1 4 4
+7 1 9 9
+8 1 5 5
+9 1 9 9
+10 1 0 0
+11 1 6 6
+12 1 9 9
+13 1 0 0
+14 1 1 1
+15 1 5 5
+16 1 9 9
+17 1 7 7
+18 0 5 3
+19 1 4 4
+20 1 9 9
+21 1 6 6
+22 1 6 6
+23 1 5 5
+24 1 4 4
+25 1 0 0
+26 1 7 7
+27 1 4 4
+28 1 0 0
+29 1 1 1
+30 1 3 3
+31 1 1 1
+32 1 3 3
+33 1 4 4
+34 1 7 7
+35 1 2 2
+36 1 7 7
+37 1 1 1
+38 1 2 2
+39 1 1 1
+40 1 1 1
+41 1 7 7
+42 1 4 4
+43 1 2 2
+44 1 3 3
+45 1 5 5
+46 1 1 1
+47 1 2 2
+48 1 4 4
+49 1 4 4
+50 1 6 6
+51 1 3 3
+52 1 5 5
+53 1 5 5
+54 1 6 6
+55 1 0 0
+56 1 4 4
+57 1 1 1
+58 1 9 9
+59 1 5 5
+60 1 7 7
+61 1 8 8
+62 1 9 9
+63 1 3 3
+64 1 7 7
+65 1 4 4
+66 1 6 6
+67 1 4 4
+68 1 3 3
+69 1 0 0
+70 1 7 7
+71 1 0 0
+72 1 2 2
+73 1 9 9
+74 1 1 1
+75 1 7 7
+76 1 3 3
+77 1 2 2
+78 1 9 9
+79 1 7 7
+80 1 7 7
+81 1 6 6
+82 1 2 2
+83 1 7 7
+84 1 8 8
+85 1 4 4
+86 1 7 7
+87 1 3 3
+88 1 6 6
+89 1 1 1
+90 1 3 3
+91 1 6 6
+92 1 9 9
+93 1 3 3
+94 1 1 1
+95 1 4 4
+96 1 1 1
+97 1 7 7
+98 1 6 6
+99 1 9 9
+99
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [Common 17-206] Exiting vivado_hls at Mon Feb  7 18:59:37 2022...

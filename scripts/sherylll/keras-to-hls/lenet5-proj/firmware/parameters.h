@@ -111,7 +111,7 @@ struct config3_mult : nnet::dense_config {
     static const unsigned n_in = 150;
     static const unsigned n_out = 8;
     static const unsigned reuse_factor = 5;
-    typedef ap_fixed<8,4> accum_t;
+    typedef accum_default_conv1_t accum_t;
     typedef bias_default_t bias_t;
     typedef weight_default_t weight_t;
     template<class x_T, class y_T, class res_T>
