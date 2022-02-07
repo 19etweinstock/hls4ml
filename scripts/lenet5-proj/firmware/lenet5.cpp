@@ -23,7 +23,7 @@
 
 void lenet5(
     input_t conv2d_input[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
-    layer13_t layer13_out[N_LAYER_13],
+    result_t layer13_out[N_LAYER_13],
     unsigned short &const_size_in_1,
     unsigned short &const_size_out_1
 ) {
@@ -41,15 +41,15 @@ void lenet5(
     static bool loaded_weights = false;
     if (!loaded_weights) {
         //hls-fpga-machine-learning insert load weights
-        nnet::load_weights_from_txt<model_default_t, 150>(w2, "w2.txt");
+        nnet::load_weights_from_txt<conv2d_weight_t, 150>(w2, "w2.txt");
         nnet::load_weights_from_txt<bias2_t, 6>(b2, "b2.txt");
-        nnet::load_weights_from_txt<model_default_t, 1200>(w5, "w5.txt");
+        nnet::load_weights_from_txt<weight_default_t, 1200>(w5, "w5.txt");
         nnet::load_weights_from_txt<bias5_t, 8>(b5, "b5.txt");
-        nnet::load_weights_from_txt<model_default_t, 15360>(w9, "w9.txt");
+        nnet::load_weights_from_txt<weight_default_t, 15360>(w9, "w9.txt");
         nnet::load_weights_from_txt<bias9_t, 120>(b9, "b9.txt");
-        nnet::load_weights_from_txt<model_default_t, 10080>(w11, "w11.txt");
+        nnet::load_weights_from_txt<weight_default_t, 10080>(w11, "w11.txt");
         nnet::load_weights_from_txt<bias11_t, 84>(b11, "b11.txt");
-        nnet::load_weights_from_txt<model_default_t, 840>(w13, "w13.txt");
+        nnet::load_weights_from_txt<weight_default_t, 840>(w13, "w13.txt");
         nnet::load_weights_from_txt<bias13_t, 10>(b13, "b13.txt");
         loaded_weights = true;
     }
@@ -85,6 +85,5 @@ void lenet5(
     #pragma HLS ARRAY_PARTITION variable=layer11_out complete dim=0
     nnet::dense<layer9_t, layer11_t, config11>(layer9_out, layer11_out, w11, b11); // dense_1
 
-    nnet::dense<layer11_t, layer13_t, config13>(layer11_out, layer13_out, w13, b13); // dense_2
-
+    nnet::dense<layer11_t, result_t, config13>(layer11_out, layer13_out, w13, b13); // dense_2
 }

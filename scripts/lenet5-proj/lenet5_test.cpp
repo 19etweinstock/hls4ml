@@ -78,11 +78,11 @@ int main(int argc, char **argv)
       //hls-fpga-machine-learning insert data
       input_t conv2d_input[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1];
       nnet::copy_data<float, input_t, 0, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(in, conv2d_input);
-      layer13_t layer13_out[N_LAYER_13];
+      result_t layer14_out[N_LAYER_13];
 
       //hls-fpga-machine-learning insert top-level-function
       unsigned short size_in1,size_out1;
-      lenet5(conv2d_input,layer13_out,size_in1,size_out1);
+      lenet5(conv2d_input,layer14_out,size_in1,size_out1);
 
       if (e % CHECKPOINT == 0) {
         std::cout << "Predictions" << std::endl;
@@ -93,12 +93,12 @@ int main(int argc, char **argv)
         std::cout << std::endl;
         std::cout << "Quantized predictions" << std::endl;
         //hls-fpga-machine-learning insert quantized
-        nnet::print_result<layer13_t, N_LAYER_13>(layer13_out, std::cout, true);
+        nnet::print_result<result_t, N_LAYER_13>(layer14_out, std::cout, true);
       }
       e++;
 
       //hls-fpga-machine-learning insert tb-output
-      nnet::print_result<layer13_t, N_LAYER_13>(layer13_out, fout);
+      nnet::print_result<result_t, N_LAYER_13>(layer14_out, fout);
 
     }
     fin.close();
@@ -109,17 +109,17 @@ int main(int argc, char **argv)
     //hls-fpga-machine-learning insert zero
     input_t conv2d_input[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1];
     nnet::fill_zero<input_t, N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1>(conv2d_input);
-    layer13_t layer13_out[N_LAYER_13];
+    result_t layer14_out[N_LAYER_13];
 
     //hls-fpga-machine-learning insert top-level-function
     unsigned short size_in1,size_out1;
-    lenet5(conv2d_input,layer13_out,size_in1,size_out1);
+    lenet5(conv2d_input,layer14_out,size_in1,size_out1);
 
     //hls-fpga-machine-learning insert output
-    nnet::print_result<layer13_t, N_LAYER_13>(layer13_out, std::cout, true);
+    nnet::print_result<result_t, N_LAYER_13>(layer14_out, std::cout, true);
 
     //hls-fpga-machine-learning insert tb-output
-    nnet::print_result<layer13_t, N_LAYER_13>(layer13_out, fout);
+    nnet::print_result<result_t, N_LAYER_13>(layer14_out, fout);
 
   }
 

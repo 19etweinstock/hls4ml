@@ -67,7 +67,7 @@ if {$opt(reset)} {
 catch {config_array_partition -maximum_size 4096}
 config_compile -name_max_length 60
 set_part {xc7vx485tffg1761-2}
-create_clock -period 5 -name default
+create_clock -period 10 -name default
 
 
 if {$opt(csim)} {

@@ -29,7 +29,7 @@
 // Prototype of top level function for C-synthesis
 void lenet5(
     input_t conv2d_input[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
-    layer13_t layer13_out[N_LAYER_13],
+    result_t layer14_out[N_LAYER_13],
     unsigned short &const_size_in_1,
     unsigned short &const_size_out_1
 );
