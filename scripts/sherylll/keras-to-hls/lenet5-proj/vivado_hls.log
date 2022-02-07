@@ -1,0 +1,308 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2020.1 (64-bit)
+  **** SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+  **** IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source C:/Xilinx/Vivado/2020.1/scripts/vivado_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2020.1/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'eweinstock6' on host 'mirc161-07' (Windows NT_amd64 version 6.2) on Sun Feb 06 16:44:32 -0500 2022
+INFO: [HLS 200-10] In directory 'C:/Users/eweinstock6/Documents/hls4ml/keras-to-hls/lenet5-proj'
+Sourcing Tcl script 'build_prj.tcl'
+INFO: [HLS 200-10] Opening and resetting project 'C:/Users/eweinstock6/Documents/hls4ml/keras-to-hls/lenet5-proj/lenet5_prj'.
+INFO: [HLS 200-10] Adding design file 'firmware/lenet5.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'lenet5_test.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'firmware/weights' to the project
+INFO: [HLS 200-10] Opening and resetting solution 'C:/Users/eweinstock6/Documents/hls4ml/keras-to-hls/lenet5-proj/lenet5_prj/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [XFORM 203-101] Allowed max sub elements number after partition is 4096.
+INFO: [HLS 200-10] Setting target device to 'xc7vx485t-ffg1761-2'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+***** C SIMULATION *****
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../lenet5_test.cpp in debug mode
+   Compiling ../../../../firmware/lenet5.cpp in debug mode
+   Generating csim.exe
+In file included from C:/Xilinx/Vivado/2020.1/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
+                 from C:/Xilinx/Vivado/2020.1/include/hls_fpo.h:186,
+                 from C:/Xilinx/Vivado/2020.1/include/hls_half.h:44,
+                 from C:/Xilinx/Vivado/2020.1/include/etc/ap_private.h:90,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_common.h:641,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_int.h:54,
+                 from ../../../../firmware/parameters.h:4,
+                 from ../../../../lenet5_test.cpp:26:
+C:/Xilinx/Vivado/2020.1/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from C:/Xilinx/Vivado/2020.1/include/hls_fpo.h:186:0,
+                 from C:/Xilinx/Vivado/2020.1/include/hls_half.h:44,
+                 from C:/Xilinx/Vivado/2020.1/include/etc/ap_private.h:90,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_common.h:641,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_int.h:54,
+                 from ../../../../firmware/parameters.h:4,
+                 from ../../../../lenet5_test.cpp:26:
+C:/Xilinx/Vivado/2020.1/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+In file included from C:/Xilinx/Vivado/2020.1/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
+                 from C:/Xilinx/Vivado/2020.1/include/hls_fpo.h:186,
+                 from C:/Xilinx/Vivado/2020.1/include/hls_half.h:44,
+                 from C:/Xilinx/Vivado/2020.1/include/etc/ap_private.h:90,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_common.h:641,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_int.h:54,
+                 from ../../../../firmware/lenet5.h:23,
+                 from ../../../../firmware/lenet5.cpp:19:
+C:/Xilinx/Vivado/2020.1/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from C:/Xilinx/Vivado/2020.1/include/hls_fpo.h:186:0,
+                 from C:/Xilinx/Vivado/2020.1/include/hls_half.h:44,
+                 from C:/Xilinx/Vivado/2020.1/include/etc/ap_private.h:90,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_common.h:641,
+                 from C:/Xilinx/Vivado/2020.1/include/ap_int.h:54,
+                 from ../../../../firmware/lenet5.h:23,
+                 from ../../../../firmware/lenet5.cpp:19:
+C:/Xilinx/Vivado/2020.1/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+0 1 7 7
+1 1 2 2
+2 1 1 1
+3 1 0 0
+4 1 4 4
+5 1 1 1
+6 1 4 4
+7 1 9 9
+8 1 5 5
+9 1 9 9
+10 1 0 0
+11 1 6 6
+12 1 9 9
+13 1 0 0
+14 1 1 1
+15 1 5 5
+16 1 9 9
+17 1 7 7
+18 0 5 3
+19 1 4 4
+20 1 9 9
+21 1 6 6
+22 1 6 6
+23 1 5 5
+24 1 4 4
+25 1 0 0
+26 1 7 7
+27 1 4 4
+28 1 0 0
+29 1 1 1
+30 1 3 3
+31 1 1 1
+32 1 3 3
+33 1 4 4
+34 1 7 7
+35 1 2 2
+36 1 7 7
+37 1 1 1
+38 1 2 2
+39 1 1 1
+40 1 1 1
+41 1 7 7
+42 1 4 4
+43 1 2 2
+44 1 3 3
+45 1 5 5
+46 1 1 1
+47 1 2 2
+48 1 4 4
+49 1 4 4
+50 1 6 6
+51 1 3 3
+52 1 5 5
+53 1 5 5
+54 1 6 6
+55 1 0 0
+56 1 4 4
+57 1 1 1
+58 1 9 9
+59 1 5 5
+60 1 7 7
+61 1 8 8
+62 1 9 9
+63 1 3 3
+64 1 7 7
+65 1 4 4
+66 1 6 6
+67 1 4 4
+68 1 3 3
+69 1 0 0
+70 1 7 7
+71 1 0 0
+72 1 2 2
+73 1 9 9
+74 1 1 1
+75 1 7 7
+76 1 3 3
+77 1 2 2
+78 1 9 9
+79 1 7 7
+80 1 7 7
+81 1 6 6
+82 1 2 2
+83 1 7 7
+84 1 8 8
+85 1 4 4
+86 1 7 7
+87 1 3 3
+88 1 6 6
+89 1 1 1
+90 1 3 3
+91 1 6 6
+92 1 9 9
+93 1 3 3
+94 1 1 1
+95 1 4 4
+96 1 1 1
+97 1 7 7
+98 1 6 6
+99 1 9 9
+99
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+***** C/RTL SYNTHESIS *****
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'firmware/lenet5.cpp' ... 
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:81:9
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:92:2
+WARNING: [HLS 214-104] Only for-loops and functions support the dataflow: C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:89:9
+WARNING: [HLS 200-471] Dataflow form checks found 3 issue(s) in file firmware/lenet5.cpp
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:03 ; elapsed = 00:01:10 . Memory (MB): peak = 934.820 ; gain = 838.699
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:03 ; elapsed = 00:01:10 . Memory (MB): peak = 934.820 ; gain = 838.699
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:27 ; elapsed = 00:01:38 . Memory (MB): peak = 934.820 ; gain = 838.699
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [XFORM 203-602] Inlining function 'nnet::max<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 4>' into 'nnet::pool_op<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 4, (nnet::Pool_Op)0>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_pooling.h:60) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::pool_op_limit<config2>' into 'nnet::pooling2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config2>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_pooling.h:139) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::pool_op<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 4, (nnet::Pool_Op)0>' into 'nnet::pooling2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config2>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_pooling.h:170) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::pool_op_limit<config4>' into 'nnet::pooling2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config4>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_pooling.h:139) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::pool_op<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 4, (nnet::Pool_Op)0>' into 'nnet::pooling2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config4>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_pooling.h:170) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::mantissa' into 'generic_cast_IEEE754<int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:15) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::expv' into 'generic_cast_IEEE754<int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:18) automatically.
+INFO: [XFORM 203-602] Inlining function 'fp_struct<double>::__signbit' into 'generic_cast_IEEE754<int, (ap_q_mode)6, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:59) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<int, (ap_q_mode)6, double>' into 'generic_cast_IEEE754<int, double>' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/include/FloatingPoint\hls_case_IEEE754.h:117) automatically.
+INFO: [XFORM 203-602] Inlining function 'generic_cast_IEEE754<int, double>' into '__hls_fptosi_double_i32' (r:/builds/2020.1/continuous/2020_05_27_2902540/src/products/hls/hls_lib/hlsmath/src/lib_floatconversion.cpp:55) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptosi_double_i32' into 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_0>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:73) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptosi_double_i32' into 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_1>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:73) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptosi_double_i32' into 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_2>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:73) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptosi_double_i32' into 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_3>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:73) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 32, 32>' into 'compute_layer5' (firmware/lenet5.cpp:122) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 64, 32>' into 'compute_layer5' (firmware/lenet5.cpp:123) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 96, 24>' into 'compute_layer5' (firmware/lenet5.cpp:124) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptosi_double_i32' into 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_0>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:73) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptosi_double_i32' into 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_1>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:73) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptosi_double_i32' into 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_2>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:73) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 34, 34>' into 'compute_layer6' (firmware/lenet5.cpp:140) automatically.
+INFO: [XFORM 203-602] Inlining function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 68, 16>' into 'compute_layer6' (firmware/lenet5.cpp:141) automatically.
+INFO: [XFORM 203-602] Inlining function '__hls_fptosi_double_i32' into 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_fixed<7, 3, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:73) automatically.
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:01:12 ; elapsed = 00:02:24 . Memory (MB): peak = 934.820 ; gain = 838.699
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_fixed<7, 3, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:56:55).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 68, 16>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:41:27).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 34, 34>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:41:27).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_2>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:56:55).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_1>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:56:55).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_0>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:56:55).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 96, 24>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:41:27).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 64, 32>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:41:27).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 32, 32>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:41:27).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_3>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:56:55).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_2>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:56:55).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_1>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:56:55).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_0>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:56:55).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::flatten<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 4, 4, 8>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_conv2d.h:237:28).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::pooling2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config4>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_pooling.h:140:10).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::conv_2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config3>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_conv2d.h:117:73).
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'ConvChan' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_conv2d.h:149) because its parent loop or function is pipelined.
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::pooling2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config2>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_pooling.h:140:10).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::max<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 4>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_pooling.h:10:25).
+INFO: [XFORM 203-502] Unrolling all loops for pipelining in function 'nnet::conv_2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config1>' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_conv2d.h:117:73).
+WARNING: [XFORM 203-505] Ignored pipeline directive for loop 'ConvFilt' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_conv2d.h:148) because its parent loop or function is pipelined.
+INFO: [HLS 200-489] Unrolling loop 'Product1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:98) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_fixed<7, 3, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' completely with a factor of 84.
+INFO: [HLS 200-489] Unrolling loop 'Product2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:103) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_fixed<7, 3, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' completely with a factor of 10.
+INFO: [HLS 200-489] Unrolling loop 'ResetAccum' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:114) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_fixed<7, 3, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' completely with a factor of 10.
+INFO: [HLS 200-489] Unrolling loop 'Accum1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:122) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_fixed<7, 3, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' completely with a factor of 84.
+INFO: [HLS 200-489] Unrolling loop 'Accum2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:126) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_fixed<7, 3, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' completely with a factor of 10.
+INFO: [HLS 200-489] Unrolling loop 'Result' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:133) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_fixed<7, 3, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' completely with a factor of 10.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:41) in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 68, 16>' completely with a factor of 68.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:44) in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 68, 16>' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:41) in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 34, 34>' completely with a factor of 34.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:44) in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 34, 34>' completely with a factor of 34.
+INFO: [HLS 200-489] Unrolling loop 'Product1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:98) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_2>' completely with a factor of 120.
+INFO: [HLS 200-489] Unrolling loop 'Product2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:103) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_2>' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'ResetAccum' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:114) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_2>' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Accum1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:122) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_2>' completely with a factor of 120.
+INFO: [HLS 200-489] Unrolling loop 'Accum2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:126) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_2>' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Result' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:133) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_2>' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'Product1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:98) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_1>' completely with a factor of 120.
+INFO: [HLS 200-489] Unrolling loop 'Product2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:103) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_1>' completely with a factor of 34.
+INFO: [HLS 200-489] Unrolling loop 'ResetAccum' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:114) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_1>' completely with a factor of 34.
+INFO: [HLS 200-489] Unrolling loop 'Accum1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:122) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_1>' completely with a factor of 120.
+INFO: [HLS 200-489] Unrolling loop 'Accum2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:126) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_1>' completely with a factor of 34.
+INFO: [HLS 200-489] Unrolling loop 'Result' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:133) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_1>' completely with a factor of 34.
+INFO: [HLS 200-489] Unrolling loop 'Product1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:98) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_0>' completely with a factor of 120.
+INFO: [HLS 200-489] Unrolling loop 'Product2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:103) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_0>' completely with a factor of 34.
+INFO: [HLS 200-489] Unrolling loop 'ResetAccum' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:114) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_0>' completely with a factor of 34.
+INFO: [HLS 200-489] Unrolling loop 'Accum1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:122) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_0>' completely with a factor of 120.
+INFO: [HLS 200-489] Unrolling loop 'Accum2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:126) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_0>' completely with a factor of 34.
+INFO: [HLS 200-489] Unrolling loop 'Result' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:133) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config6_0>' completely with a factor of 34.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:41) in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 96, 24>' completely with a factor of 96.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:44) in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 96, 24>' completely with a factor of 24.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:41) in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 64, 32>' completely with a factor of 64.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:44) in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 64, 32>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:41) in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 32, 32>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Loop-2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils/nnet_common.h:44) in function 'nnet::merge<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 32, 32>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Product1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:98) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_3>' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'Product2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:103) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_3>' completely with a factor of 24.
+INFO: [HLS 200-489] Unrolling loop 'ResetAccum' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:114) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_3>' completely with a factor of 24.
+INFO: [HLS 200-489] Unrolling loop 'Accum1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:122) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_3>' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'Accum2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:126) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_3>' completely with a factor of 24.
+INFO: [HLS 200-489] Unrolling loop 'Result' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:133) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_3>' completely with a factor of 24.
+INFO: [HLS 200-489] Unrolling loop 'Product1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:98) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_2>' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'Product2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:103) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_2>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'ResetAccum' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:114) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_2>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Accum1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:122) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_2>' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'Accum2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:126) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_2>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Result' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:133) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_2>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Product1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:98) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_1>' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'Product2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:103) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_1>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'ResetAccum' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:114) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_1>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Accum1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:122) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_1>' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'Accum2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:126) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_1>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Result' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:133) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_1>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Product1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:98) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_0>' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'Product2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:103) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_0>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'ResetAccum' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:114) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_0>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Accum1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:122) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_0>' completely with a factor of 128.
+INFO: [HLS 200-489] Unrolling loop 'Accum2' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:126) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_0>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Result' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_layer.h:133) in function 'nnet::compute_layer<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_0>' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_conv2d.h:237) in function 'nnet::flatten<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 4, 4, 8>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_conv2d.h:238) in function 'nnet::flatten<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 4, 4, 8>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_conv2d.h:239) in function 'nnet::flatten<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, 4, 4, 8>' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_pooling.h:145) in function 'nnet::pooling2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config4>' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_pooling.h:147) in function 'nnet::pooling2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config4>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_pooling.h:149) in function 'nnet::pooling2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config4>' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1.1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_pooling.h:154) in function 'nnet::pooling2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config4>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1.1.1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_pooling.h:156) in function 'nnet::pooling2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config4>' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_conv2d.h:119) in function 'nnet::conv_2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config3>' completely with a factor of 12.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_conv2d.h:120) in function 'nnet::conv_2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config3>' completely with a factor of 12.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_conv2d.h:121) in function 'nnet::conv_2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config3>' completely with a factor of 6.
+INFO: [HLS 200-489] Unrolling loop 'ConvOutHeight' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_conv2d.h:145) in function 'nnet::conv_2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config3>' completely with a factor of 8.
+ERROR: [XFORM 203-504] Stop unrolling loop 'ConvOutHeight' (C:/Users/eweinstock6/Documents/hls4ml/nnet_utils\nnet_conv2d.h:145) in function 'nnet::conv_2d<ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 0, (ap_q_mode)1, (ap_o_mode)0, 0>, config3>' because it may cause large runtime and excessive memory usage due to increase in code size. Please avoid unrolling the loop or form sub-functions for code in the loop body.
+ERROR: [HLS 200-70] Pre-synthesis failed.
+command 'ap_source' returned error code
+    while executing
+"source build_prj.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel \#0 [list source $arg] "
+
+INFO: [Common 17-206] Exiting vivado_hls at Sun Feb  6 16:48:12 2022...

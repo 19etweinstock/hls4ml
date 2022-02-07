@@ -135,7 +135,7 @@ void conv_2d(
 //    #pragma HLS function_instantiate variable=weights,biases
     
     // Parallel mode
-    #pragma HLS ARRAY_PARTITION variable=biases complete dim=0
+    // #pragma HLS ARRAY_PARTITION variable=biases complete dim=0
   
     // Limit multipliers to control parallelization
     const int multiplier_limit = CONFIG_T::multiplier_limit;
@@ -143,6 +143,7 @@ void conv_2d(
     
     // Convolve, saving all multiplication results to accumulate later
     ConvOutHeight: for(int oh = 0; oh < CONFIG_T::out_height; oh++) {
+    // #pragma HLS unroll factor=4 region
       ConvOutWidth: for(int ow = 0; ow < CONFIG_T::out_width; ow++) {
         ConvFilt: for(int ff = 0; ff < CONFIG_T::n_filt; ff++){
           ConvChan: for(int cc = 0; cc < CONFIG_T::n_chan; cc++){
@@ -233,10 +234,10 @@ template<class data_T, int N1, int N2, int N3>
         data_T    data[N1][N2][N3], 
 	data_T     res[N1*N2*N3])
 {
-    for(int i1=0; i1<N1; i1++){
-      for(int i2=0; i2<N2; i2++){
-        for(int i3=0; i3<N3; i3++){
-            res[i1*N2*N3+i2*N3+i3] = data[i1][i2][i3];
+    for(int H=0; H<N1; H++){
+      for(int W=0; W<N2; W++){
+        for(int C=0; C<N3; C++){
+            res[C*N1*N2+H*N2+W] = data[H][W][C];
         }//i3
       }//i2
     }//i1

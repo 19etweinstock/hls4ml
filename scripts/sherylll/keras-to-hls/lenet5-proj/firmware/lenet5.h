@@ -33,8 +33,8 @@ void lenet5(
       unsigned short &const_size_in,
       unsigned short &const_size_out);
 
-void compute_layer5(layer4_t layer4_out[N_LAYER_4], layer5_t logits5[N_LAYER_5]);
-void compute_layer6(layer5_t layer5_out[N_LAYER_5], layer6_t logits6[N_LAYER_6]);
+void compute_layer5(input_t layer4_out[N_LAYER_4], input_t logits5[N_LAYER_5]);
+void compute_layer6(input_t layer5_out[N_LAYER_5], input_t logits6[N_LAYER_6]);
 
 #endif
 

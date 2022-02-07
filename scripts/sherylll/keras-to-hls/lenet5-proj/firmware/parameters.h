@@ -12,11 +12,14 @@
 #include "nnet_pooling.h"
 
 //hls-fpga-machine-learning insert numbers
-typedef ap_fixed<7,3, AP_RND> accum_default_t;
-typedef ap_fixed<3,3, AP_RND> weight_default_t;
-typedef ap_fixed<1,0, AP_RND> bias_default_t;
-typedef ap_fixed<2,0, AP_RND> input_t;
-typedef ap_fixed<7,3, AP_RND> result_t;
+typedef ap_fixed<7,3> accum_default_t;
+typedef ap_fixed<5,2> accum_default_conv0_t;
+typedef ap_fixed<8,4> accum_default_conv1_t;
+typedef ap_fixed<2,0> weight_default_layer1_t;
+typedef ap_fixed<2,-1> weight_default_t;
+typedef ap_fixed<1,0> bias_default_t;
+typedef ap_ufixed<1,0, AP_RND_ZERO, AP_SAT> input_t;
+typedef ap_fixed<7,3> result_t;
 #define IN_HEIGHT_1 28
 #define IN_WIDTH_1 28
 #define N_CHAN_1 1
@@ -49,14 +52,6 @@ typedef ap_fixed<7,3, AP_RND> result_t;
 #define N_LAYER_6 84
 #define N_OUTPUTS 10
 
-//hls-fpga-machine-learning insert layer-precision
-typedef ap_fixed<7,3, AP_RND> layer1_t;
-typedef ap_fixed<7,3, AP_RND> layer2_t;
-typedef ap_fixed<7,3, AP_RND> layer3_t;
-typedef ap_fixed<7,3, AP_RND> layer4_t;
-typedef ap_fixed<7,3, AP_RND> layer5_t;
-typedef ap_fixed<7,3, AP_RND> layer6_t;
-
 //hls-fpga-machine-learning insert layer-config
 struct config1 : nnet::conv2d_config {
         static const unsigned pad_top = 0;
@@ -77,14 +72,9 @@ struct config1 : nnet::conv2d_config {
         static const unsigned reuse_factor = 1;
         static const unsigned n_zeros = 0;
         static const bool store_weights_in_bram = false;
-        typedef accum_default_t accum_t;
+        typedef accum_default_conv0_t accum_t;
         typedef bias_default_t bias_t;
-        typedef weight_default_t weight_t;
-        };
-struct relu_config1 : nnet::activ_config {
-        static const unsigned n_in = OUT_HEIGHT_1*OUT_WIDTH_1*N_FILT_1;
-        static const unsigned table_size = 1024;
-        static const unsigned io_type = nnet::io_parallel;
+        typedef weight_default_layer1_t weight_t;
         };
 struct config2 : nnet::pooling2d_config {
         static const unsigned in_height = IN_HEIGHT_2;
@@ -123,14 +113,9 @@ struct config2 : nnet::pooling2d_config {
         static const unsigned reuse_factor = 1;
         static const unsigned n_zeros = 0;
         static const bool store_weights_in_bram = false;
-        typedef accum_default_t accum_t;
+        typedef accum_default_conv1_t accum_t;
         typedef bias_default_t bias_t;
         typedef weight_default_t weight_t;
-        };
-struct relu_config3 : nnet::activ_config {
-        static const unsigned n_in = OUT_HEIGHT_3*OUT_WIDTH_3*N_FILT_3;
-        static const unsigned table_size = 1024;
-        static const unsigned io_type = nnet::io_parallel;
         };
 struct config4 : nnet::pooling2d_config {
         static const unsigned in_height = IN_HEIGHT_4;
@@ -194,11 +179,6 @@ struct config5_3 : nnet::layer_config {
         typedef bias_default_t bias_t;
         typedef weight_default_t weight_t;
         };
-struct relu_config5 : nnet::activ_config {
-        static const unsigned n_in = N_LAYER_5;
-        static const unsigned table_size = 1024;
-        static const unsigned io_type = nnet::io_parallel;
-        };
 struct config6_0 : nnet::layer_config {
         static const unsigned n_in = N_LAYER_5;
         static const unsigned n_out = 34;
@@ -232,11 +212,6 @@ struct config6_2 : nnet::layer_config {
         typedef bias_default_t bias_t;
         typedef weight_default_t weight_t;
         };
-struct relu_config6 : nnet::activ_config {
-        static const unsigned n_in = N_LAYER_6;
-        static const unsigned table_size = 1024;
-        static const unsigned io_type = nnet::io_parallel;
-        };
 struct config7 : nnet::layer_config {
         static const unsigned n_in = N_LAYER_6;
         static const unsigned n_out = N_OUTPUTS;
@@ -247,11 +222,6 @@ struct config7 : nnet::layer_config {
         typedef accum_default_t accum_t;
         typedef bias_default_t bias_t;
         typedef weight_default_t weight_t;
-        };
-struct relu_config7 : nnet::activ_config {
-        static const unsigned n_in = N_OUTPUTS;
-        static const unsigned table_size = 1024;
-        static const unsigned io_type = nnet::io_parallel;
         };
 
 #endif 
