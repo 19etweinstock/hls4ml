@@ -1,0 +1,14 @@
+OutputDir: lenet5-proj
+ProjectName: lenet5
+Backend: Vivado
+XilinxPart: xc7vx485tffg1761-2
+Board: pynq-z2
+ClockPeriod: 5
+IOType: io_parallel
+HLSConfig:
+  Model:
+    Precision: ap_fixed<7,3>
+    ReuseFactor: 1
+    Strategy: Latency
+KerasJson: saved_model_no_relu_bias.json
+KerasH5: saved_weights_no_relu_bias.h5
