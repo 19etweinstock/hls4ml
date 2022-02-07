@@ -16,7 +16,10 @@
 //    You should have received a copy of the GNU General Public License
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
-#include <iostream>
+
+#ifdef __clang__
+    class type_info;
+#endif
 
 #include "lenet5.h"
 #include "parameters.h"
@@ -37,23 +40,6 @@ void lenet5(
     const_size_in_1 = N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1;
     const_size_out_1 = N_LAYER_13;
 
-#ifndef __SYNTHESIS__
-    static bool loaded_weights = false;
-    if (!loaded_weights) {
-        //hls-fpga-machine-learning insert load weights
-        nnet::load_weights_from_txt<conv2d_weight_t, 150>(w2, "w2.txt");
-        nnet::load_weights_from_txt<bias2_t, 6>(b2, "b2.txt");
-        nnet::load_weights_from_txt<weight_default_t, 1200>(w5, "w5.txt");
-        nnet::load_weights_from_txt<bias5_t, 8>(b5, "b5.txt");
-        nnet::load_weights_from_txt<weight_default_t, 15360>(w9, "w9.txt");
-        nnet::load_weights_from_txt<bias9_t, 120>(b9, "b9.txt");
-        nnet::load_weights_from_txt<weight_default_t, 10080>(w11, "w11.txt");
-        nnet::load_weights_from_txt<bias11_t, 84>(b11, "b11.txt");
-        nnet::load_weights_from_txt<weight_default_t, 840>(w13, "w13.txt");
-        nnet::load_weights_from_txt<bias13_t, 10>(b13, "b13.txt");
-        loaded_weights = true;
-    }
-#endif
 
     // ****************************************
     // NETWORK INSTANTIATION
