@@ -360,8 +360,8 @@ int main(int argc, char **argv)
 	result_layer1_t result1[3][3][2] = {0};
 	result_layer2_t result2[3][3][2] = {0};
 
-	nnet::conv_2d<activation_t,result_layer1_t,config_weight1>(input,result1,weights1_1d,bias);
-	nnet::conv_2d<activation_t,result_layer2_t,config_weight2>(input,result2,weights2_1d,bias);
+	nnet::conv_2d_latency<activation_t,result_layer1_t,config_weight1>(input,result1,weights1_1d,bias);
+	nnet::conv_2d_latency<activation_t,result_layer2_t,config_weight2>(input,result2,weights2_1d,bias);
 
 	for(int i = 0; i < 3; i++){
 		for (int j = 0; j <3; j++){
@@ -535,7 +535,7 @@ int main(int argc, char **argv)
 
 		// run the convolution
 		accum_default_conv0_t layer1_out[OUT_HEIGHT_1][OUT_WIDTH_1][N_FILT_1];
-		nnet::conv_2d<input_t, accum_default_conv0_t, config1>(input_str, layer1_out, w1, b1);
+		nnet::conv_2d_latency<input_t, accum_default_conv0_t, config1>(input_str, layer1_out, w1, b1);
 
 		for(int k = 0; k < N_FILT_1; k++){
 			for(int i = 0; i < OUT_HEIGHT_1; i++){
@@ -548,7 +548,7 @@ int main(int argc, char **argv)
 		}
 
 		input_t activated[OUT_HEIGHT_1][OUT_WIDTH_1][N_FILT_1];
-		nnet::conv_2d<input_t, input_t, config1>(input_str, activated, w1, b1);
+		nnet::conv_2d_latency<input_t, input_t, config1>(input_str, activated, w1, b1);
 
 		for(int k = 0; k < N_FILT_1; k++){
 			for(int i = 0; i < OUT_HEIGHT_1; i++){
@@ -591,7 +591,7 @@ int main(int argc, char **argv)
 
 		// run the convolution
 		input_t layer1_out[OUT_HEIGHT_1][OUT_WIDTH_1][N_FILT_1];
-		nnet::conv_2d<input_t, input_t, config1>(data, layer1_out, w1, b1);
+		nnet::conv_2d_latency<input_t, input_t, config1>(data, layer1_out, w1, b1);
 
 		input_t layer2_out[OUT_HEIGHT_2][OUT_WIDTH_2][N_FILT_2];
 		nnet::pooling2d<input_t, config2>(layer1_out, layer2_out);
@@ -608,8 +608,8 @@ int main(int argc, char **argv)
 
 		input_t layer3_out[OUT_HEIGHT_3][OUT_WIDTH_3][N_FILT_3];
 		accum_default_conv1_t layer3_temp[OUT_HEIGHT_3][OUT_WIDTH_3][N_FILT_3];
-		nnet::conv_2d<input_t, accum_default_conv1_t, config3>(layer2_out, layer3_temp, w3, b3);
-		nnet::conv_2d<input_t, input_t, config3>(layer2_out, layer3_out, w3, b3);
+		nnet::conv_2d_latency<input_t, accum_default_conv1_t, config3>(layer2_out, layer3_temp, w3, b3);
+		nnet::conv_2d_latency<input_t, input_t, config3>(layer2_out, layer3_out, w3, b3);
 
 		for(int k = 0; k < 1; k++){
 			for(int i = 0; i < OUT_HEIGHT_3; i++){

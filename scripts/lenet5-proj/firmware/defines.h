@@ -45,7 +45,8 @@ typedef ap_ufixed<1,0,AP_RND_ZERO,AP_SAT> layer9_t;
 typedef ap_uint<1> bias9_t;
 typedef ap_ufixed<1,0,AP_RND_ZERO,AP_SAT> layer11_t;
 typedef ap_uint<1> bias11_t;
+typedef ap_fixed<7,3> layer13_t;
 typedef ap_uint<1> bias13_t;
-typedef ap_fixed<7,3> result_t;
+typedef ap_ufixed<1,0,AP_RND_ZERO,AP_SAT> result_t;
 
 #endif

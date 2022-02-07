@@ -10,6 +10,8 @@ HLSConfig:
     conv2d_1:
       Precision:
         accum: ap_fixed<8,4>
+      ReuseFactor: 5
+      Strategy: Resource
     dense_2:
       Precision:
         result: ap_fixed<7,3>
@@ -25,5 +27,5 @@ KerasH5: saved_weights_no_relu_bias.h5
 KerasJson: saved_model_no_relu_bias.json
 OutputDir: lenet5-proj
 ProjectName: lenet5
-Stamp: 0bCE2F00
+Stamp: dd62A48C
 XilinxPart: xc7vx485tffg1761-2

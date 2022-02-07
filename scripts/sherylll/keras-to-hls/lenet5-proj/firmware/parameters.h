@@ -6,6 +6,7 @@
 #include "nnet_layer.h"
 #include "nnet_conv.h"
 #include "nnet_conv2d.h"
+#include "nnet_conv2d_resource.h"
 #include "nnet_activation.h"
 #include "nnet_common.h"
 #include "nnet_batchnorm.h"
@@ -93,6 +94,17 @@ struct config2 : nnet::pooling2d_config {
         static const nnet::Pool_Op pool_op = nnet::Max;
         static const unsigned reuse = 1;
     };
+
+struct config3_mult : nnet::dense_config {
+    static const unsigned n_in = 150;
+    static const unsigned n_out = 8;
+    static const unsigned reuse_factor = 5;
+    typedef ap_fixed<8,4> accum_t;
+    typedef bias_default_t bias_t;
+    typedef weight_default_t weight_t;
+    template<class x_T, class y_T, class res_T>
+    using product = nnet::product::mult<x_T, y_T, res_T>;
+};
 
     struct config3 : nnet::conv2d_config {
         static const unsigned pad_top = 0;

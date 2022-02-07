@@ -21,8 +21,8 @@ HLSConfig:
     conv2d_1:
       Precision:
         accum: ap_fixed<8,4>
-      # ReuseFactor: 5
-      # Strategy: Resource
+      ReuseFactor: 5
+      Strategy: Resource
     dense_2:
       Precision:
         result: ap_fixed<7,3>

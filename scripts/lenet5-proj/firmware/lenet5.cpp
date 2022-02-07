@@ -23,16 +23,16 @@
 
 void lenet5(
     input_t conv2d_input[N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1],
-    result_t layer13_out[N_LAYER_13],
+    result_t layer14_out[N_LAYER_13],
     unsigned short &const_size_in_1,
     unsigned short &const_size_out_1
 ) {
 
     //hls-fpga-machine-learning insert IO
     #pragma HLS ARRAY_RESHAPE variable=conv2d_input complete dim=0
-    #pragma HLS ARRAY_PARTITION variable=layer13_out complete dim=0
-    #pragma HLS INTERFACE ap_vld port=conv2d_input,layer13_out 
-    #pragma HLS PIPELINE 
+    #pragma HLS ARRAY_PARTITION variable=layer14_out complete dim=0
+    #pragma HLS INTERFACE ap_vld port=conv2d_input,layer14_out 
+    #pragma HLS DATAFLOW 
 
     const_size_in_1 = N_INPUT_1_1*N_INPUT_2_1*N_INPUT_3_1;
     const_size_out_1 = N_LAYER_13;
@@ -85,5 +85,10 @@ void lenet5(
     #pragma HLS ARRAY_PARTITION variable=layer11_out complete dim=0
     nnet::dense<layer9_t, layer11_t, config11>(layer9_out, layer11_out, w11, b11); // dense_1
 
-    nnet::dense<layer11_t, result_t, config13>(layer11_out, layer13_out, w13, b13); // dense_2
+    layer13_t layer13_out[N_LAYER_13];
+    #pragma HLS ARRAY_PARTITION variable=layer13_out complete dim=0
+    nnet::dense<layer11_t, layer13_t, config13>(layer11_out, layer13_out, w13, b13); // dense_2
+
+    nnet::linear<layer13_t, result_t, linear_config14>(layer13_out, layer14_out); // dense_2_linear
+
 }

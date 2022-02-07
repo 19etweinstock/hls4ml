@@ -33,8 +33,8 @@
 struct config2_mult : nnet::dense_config {
     static const unsigned n_in = 25;
     static const unsigned n_out = 6;
-    static const unsigned reuse_factor = 1;
-    static const unsigned strategy = nnet::latency;
+    static const unsigned reuse_factor = 5;
+    static const unsigned strategy = nnet::resource;
     typedef ap_fixed<5,1> accum_t;
     typedef bias2_t bias_t;
     typedef conv2d_weight_t weight_t;
@@ -58,10 +58,10 @@ struct config2 : nnet::conv2d_config {
     static const unsigned stride_width = 1;
     static const unsigned out_height = OUT_HEIGHT_2;
     static const unsigned out_width = OUT_WIDTH_2;
-    static const unsigned reuse_factor = 1;
+    static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const bool store_weights_in_bram = false;
-    static const unsigned strategy = nnet::latency;
+    static const unsigned strategy = nnet::resource;
     static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned min_height = N_INPUT_1_1;
     static const unsigned min_width = N_INPUT_2_1;
@@ -103,8 +103,8 @@ struct config4 : nnet::pooling2d_config {
 struct config5_mult : nnet::dense_config {
     static const unsigned n_in = 150;
     static const unsigned n_out = 8;
-    static const unsigned reuse_factor = 1;
-    static const unsigned strategy = nnet::latency;
+    static const unsigned reuse_factor = 5;
+    static const unsigned strategy = nnet::resource;
     typedef ap_fixed<8,4> accum_t;
     typedef bias5_t bias_t;
     typedef weight_default_t weight_t;
@@ -128,10 +128,10 @@ struct config5 : nnet::conv2d_config {
     static const unsigned stride_width = 1;
     static const unsigned out_height = OUT_HEIGHT_5;
     static const unsigned out_width = OUT_WIDTH_5;
-    static const unsigned reuse_factor = 1;
+    static const unsigned reuse_factor = 5;
     static const unsigned n_zeros = 0;
     static const bool store_weights_in_bram = false;
-    static const unsigned strategy = nnet::latency;
+    static const unsigned strategy = nnet::resource;
     static const nnet::conv_implementation implementation = nnet::conv_implementation::linebuffer;
     static const unsigned min_height = OUT_HEIGHT_4;
     static const unsigned min_width = OUT_WIDTH_4;
@@ -174,8 +174,8 @@ struct config9 : nnet::dense_config {
     static const unsigned n_in = N_SIZE_1_8;
     static const unsigned n_out = N_LAYER_9;
     static const unsigned io_type = nnet::io_parallel;
-    static const unsigned strategy = nnet::latency;
-    static const unsigned reuse_factor = 1;
+    static const unsigned strategy = nnet::resource;
+    static const unsigned reuse_factor = 2;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 15360;
     static const bool store_weights_in_bram = false;
@@ -192,8 +192,8 @@ struct config11 : nnet::dense_config {
     static const unsigned n_in = N_LAYER_9;
     static const unsigned n_out = N_LAYER_11;
     static const unsigned io_type = nnet::io_parallel;
-    static const unsigned strategy = nnet::latency;
-    static const unsigned reuse_factor = 1;
+    static const unsigned strategy = nnet::resource;
+    static const unsigned reuse_factor = 2;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 10080;
     static const bool store_weights_in_bram = false;
@@ -210,8 +210,8 @@ struct config13 : nnet::dense_config {
     static const unsigned n_in = N_LAYER_11;
     static const unsigned n_out = N_LAYER_13;
     static const unsigned io_type = nnet::io_parallel;
-    static const unsigned strategy = nnet::latency;
-    static const unsigned reuse_factor = 1;
+    static const unsigned strategy = nnet::resource;
+    static const unsigned reuse_factor = 2;
     static const unsigned n_zeros = 0;
     static const unsigned n_nonzeros = 840;
     static const bool store_weights_in_bram = false;
@@ -221,6 +221,15 @@ struct config13 : nnet::dense_config {
     typedef ap_uint<1> index_t;
     template<class x_T, class y_T, class res_T>
     using product = nnet::product::mult<x_T, y_T, res_T>;
+};
+
+// dense_2_linear
+struct linear_config14 : nnet::activ_config {
+    static const unsigned n_in = N_LAYER_13;
+    static const unsigned table_size = 1024;
+    static const unsigned io_type = nnet::io_parallel;
+    static const unsigned reuse_factor = 1;
+    typedef ap_fixed<18,8> table_t;
 };
 
 
