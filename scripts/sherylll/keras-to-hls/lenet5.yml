@@ -1,0 +1,10 @@
+KerasJson: lenet5-model-files/saved_model.json
+KerasH5: lenet5-model-files/saved_weights.h5
+OutputDir: lenet5-proj
+ProjectName: lenet5
+XilinxPart: xc7vx485tffg1761-2
+ClockPeriod: 10
+
+IOType: io_parallel # options: io_serial/io_parallel
+ReuseFactor: 1
+DefaultPrecision: ap_fixed<4,3, AP_RND> 
