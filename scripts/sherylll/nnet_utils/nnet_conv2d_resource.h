@@ -3,7 +3,7 @@
 
 #include "nnet_common.h"
 #include <cstdlib>
-#include "nnet_dense.h"
+#include <assert.h>
 
 #define DIV_ROUNDUP(n,d) ((n + d - 1) / d)
 #define MIN(n,d) (n > d ? d : n)
@@ -315,7 +315,6 @@ void dense_resource(
     }
 }
 
-}
 
 
 template<class data_T, typename CONFIG_T>

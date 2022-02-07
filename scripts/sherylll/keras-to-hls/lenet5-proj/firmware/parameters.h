@@ -54,6 +54,18 @@ typedef ap_fixed<7,3> result_t;
 #define N_OUTPUTS 10
 
 //hls-fpga-machine-learning insert layer-config
+
+struct config1_mult : nnet::dense_config {
+    static const unsigned n_in = 25;
+    static const unsigned n_out = 6;
+    static const unsigned reuse_factor = 5;
+    typedef accum_default_conv0_t accum_t;
+    typedef bias_default_t bias_t;
+    typedef weight_default_layer1_t weight_t;
+    template<class x_T, class y_T, class res_T>
+    using product = nnet::product::mult<x_T, y_T, res_T>;
+};
+
 struct config1 : nnet::conv2d_config {
         static const unsigned pad_top = 0;
         static const unsigned pad_bottom = 0;
