@@ -2,10 +2,11 @@
 #    HLS4ML
 #################
 array set opt {
+  reset  0
   csim   1
-  synth  0
-  cosim  0
-  export 0
+  synth  1
+  cosim  1
+  export 1
 }
 
 foreach arg $::argv {
@@ -14,7 +15,11 @@ foreach arg $::argv {
   }
 }
 
-open_project -reset lenet5_prj
+if {$opt(reset)} {
+  open_project -reset lenet5_prj
+} else {
+  open_project lenet5_prj
+}
 set_top lenet5
 add_files firmware/lenet5.cpp -cflags "-I[file normalize ..\\..\\nnet_utils] -std=c++0x"
 add_files -tb lenet5_test.cpp -cflags "-I[file normalize ..\\..\\nnet_utils] -std=c++0x"
