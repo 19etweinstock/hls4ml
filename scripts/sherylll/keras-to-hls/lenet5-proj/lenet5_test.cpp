@@ -150,6 +150,28 @@ typedef ap_fixed<5,2> result_layer1_t;
 typedef ap_fixed<5,1> result_layer2_t;
 typedef ap_fixed<1,0> one_t;
 
+struct mult_weight1 : nnet::dense_config {
+    static const unsigned n_in = 4;
+    static const unsigned n_out = 2;
+    static const unsigned reuse_factor = 1;
+    typedef result_layer1_t accum_t;
+    typedef one_t bias_t;
+    typedef weight_layer1_t weight_t;
+    template<class x_T, class y_T, class res_T>
+    using product = nnet::product::mult<x_T, y_T, res_T>;
+};
+
+struct mult_weight2 : nnet::dense_config {
+    static const unsigned n_in = 4;
+    static const unsigned n_out = 2;
+    static const unsigned reuse_factor = 1;
+    typedef result_layer2_t accum_t;
+    typedef one_t bias_t;
+    typedef weight_layer2_t weight_t;
+    template<class x_T, class y_T, class res_T>
+    using product = nnet::product::mult<x_T, y_T, res_T>;
+};
+
 struct config_weight1 : nnet::conv2d_config {
         static const unsigned pad_top = 0;
         static const unsigned pad_bottom = 0;
@@ -346,22 +368,70 @@ int main(int argc, char **argv)
 		{{{0.25,-0.25}},{{0.25,0.25}}}
 	};
 
-	weight_layer1_t weights1_1d[8]={0.25,0.25,0.25,0,0.25,-0.25,0.25,0.25};
+	weight_layer1_t weights1_1d[8]={0.25,0.25,0.25,0.25,0.25,0,-0.25,0.25};
 
 	weight_layer2_t weights2[2][2][1][2]={
 		{{{0.125,0.125}},{{0,-0.125}}},
 		{{{0,-0.125}},{{-0.125,0}}}
 	};
 
-	weight_layer2_t weights2_1d[8]={0.125,0.125,0,-0.125,0,-0.125,-0.125,0};
+	weight_layer2_t weights2_1d[8]={0.125,0, 0, -0.125, 0.125, -0.125, -0.125, 0};
 
 	one_t bias[2] = {0,0};
 
 	result_layer1_t result1[3][3][2] = {0};
 	result_layer2_t result2[3][3][2] = {0};
 
-	nnet::conv_2d_latency<activation_t,result_layer1_t,config_weight1>(input,result1,weights1_1d,bias);
-	nnet::conv_2d_latency<activation_t,result_layer2_t,config_weight2>(input,result2,weights2_1d,bias);
+	nnet::conv_2d_resource_cl<activation_t,result_layer1_t,config_weight1,mult_weight1>(input,result1,weights1_1d,bias);
+	nnet::conv_2d_resource_cl<activation_t,result_layer2_t,config_weight2,mult_weight2>(input,result2,weights2_1d,bias);
+
+	activation_t data[config_weight1::in_height*config_weight1::in_width*config_weight1::n_chan];
+    for(int ih = 0; ih < config_weight1::in_height; ih++) {
+      for(int iw = 0; iw < config_weight1::in_width; iw++) {
+	for(int cc = 0; cc < config_weight1::n_chan; cc++){
+          data[ih*config_weight1::in_width*config_weight1::n_chan + iw*config_weight1::n_chan + cc] = input[ih][iw][cc];
+        }
+      }
+    }
+
+	int row = 0, col = 0;
+	int index = 0;
+    for (int kernel_row = 0; kernel_row < config_weight1::filt_height; kernel_row++) {
+        int input_row = -config_weight1::pad_top + kernel_row + row * config_weight1::stride_height;
+        for (int kernel_col = 0; kernel_col < config_weight1::filt_width; kernel_col++) {
+            for (int channel = 0; channel < config_weight1::n_chan; channel++) {
+                if (input_row < 0 || input_row >= config_weight1::in_height) {
+                    // data_col[index++] = 0;
+                } else {
+                    int input_col = -config_weight1::pad_left + kernel_col + col * config_weight1::stride_width;
+                    if (input_col >= 0 && input_col < config_weight1::in_width) {
+                        std::cout << input_row * config_weight1::in_width * config_weight1::n_chan + input_col * config_weight1::n_chan + channel << std::endl;
+                    } else {
+                        // data_col[index++] = 0;
+                    }
+                }
+            }
+        }
+    }
+
+	for(int i = 0; i < 16; i++)
+		std::cout << data[i] << " ";
+	std::cout << std::endl << std::endl;
+
+	activation_t data_col[config_weight1::filt_height * config_weight1::filt_width * config_weight1::n_chan];
+	nnet::im2col_2d_cl<activation_t, config_weight1>(data, data_col, 0,0);
+
+	for(int i = 0; i < 4; i++)
+		std::cout << data_col[i] << " ";
+	std::cout << std::endl << std::endl;
+
+
+    result_layer1_t res_col[config_weight1::n_filt];
+	nnet::dense_resource<activation_t, result_layer1_t, mult_weight1>(data_col, res_col, weights1_1d, bias);
+	for (int i = 0; i < 2; i++)
+		std::cout << res_col[i] << " ";
+	std::cout << std::endl << std::endl;
+
 
 	for(int i = 0; i < 3; i++){
 		for (int j = 0; j <3; j++){

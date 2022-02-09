@@ -3,7 +3,7 @@
 
 #include "nnet_common.h"
 #include <cstdlib>
-#include "nnet_dense.h"
+#include <assert.h>
 
 #define DIV_ROUNDUP(n,d) ((n + d - 1) / d)
 #define MIN(n,d) (n > d ? d : n)
@@ -110,7 +110,7 @@ void dense_resource_rf_leq_nin(
             #pragma HLS UNROLL
 
             acc[out_index] += CONFIG_T::template product<data_T, typename CONFIG_T::weight_t, typename CONFIG_T::accum_t>::product(data[in_index], weights[w_index]);
-
+            // std::cout << out_index << " " << in_index << " " << w_index << std::endl;
             // Increment w_index
             w_index += rufactor;
             // Increment in_index
@@ -315,47 +315,6 @@ void dense_resource(
     }
 }
 
-}
-
-
-template<class data_T, typename CONFIG_T>
-void im2col_2d(
-    data_T data[CONFIG_T::in_height * CONFIG_T::in_width * CONFIG_T::n_chan],
-    data_T data_col[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan * CONFIG_T::out_height * CONFIG_T::out_width])
-{
-    const int output_h = (CONFIG_T::in_height + CONFIG_T::pad_top + CONFIG_T::pad_bottom -
-        (CONFIG_T::dilation_height * (CONFIG_T::filt_height - 1) + 1)) / CONFIG_T::stride_height + 1;
-    const int output_w = (CONFIG_T::in_width + CONFIG_T::pad_left + CONFIG_T::pad_right -
-        (CONFIG_T::dilation_width * (CONFIG_T::filt_width - 1) + 1)) / CONFIG_T::stride_width + 1;
-    const int channel_size = CONFIG_T::in_height * CONFIG_T::in_width;
-
-    for (int channel = CONFIG_T::n_chan; channel--; data += channel_size) {
-        for (int kernel_row = 0; kernel_row < CONFIG_T::filt_height; kernel_row++) {
-            for (int kernel_col = 0; kernel_col < CONFIG_T::filt_width; kernel_col++) {
-                int input_row = -CONFIG_T::pad_top + kernel_row * CONFIG_T::dilation_height;
-                for (int output_rows = output_h; output_rows; output_rows--) {
-                    if (input_row < 0 || input_row > CONFIG_T::in_height) {
-                        for (int output_cols = output_w; output_cols; output_cols--) {
-                            *(data_col++) = 0;
-                        }
-                    } else {
-                        int input_col = -CONFIG_T::pad_left + kernel_col * CONFIG_T::dilation_width;
-                        for (int output_col = output_w; output_col; output_col--) {
-                            if (input_col >= 0 && input_col < CONFIG_T::in_width) {
-                                *(data_col++) = data[input_row * CONFIG_T::in_width + input_col];
-                            } else {
-                                *(data_col++) = 0;
-                            }
-                            input_col += CONFIG_T::stride_width;
-                        }
-                    }
-                    input_row += CONFIG_T::stride_height;
-                }
-            }
-        }
-    }
-}
-
 
 
 template<class data_T, typename CONFIG_T>
@@ -395,7 +354,7 @@ void conv_2d_resource_cl(
 {
     //Convert data to 1D
     data_T data[CONFIG_T::in_height*CONFIG_T::in_width*CONFIG_T::n_chan];
-    #pragma HLS ARRAY_PARTITION variable=data_1d complete dim=0
+    #pragma HLS ARRAY_PARTITION variable=data complete dim=0
     for(int ih = 0; ih < CONFIG_T::in_height; ih++) {
       for(int iw = 0; iw < CONFIG_T::in_width; iw++) {
 	for(int cc = 0; cc < CONFIG_T::n_chan; cc++){

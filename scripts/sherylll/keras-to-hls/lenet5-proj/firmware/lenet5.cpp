@@ -72,7 +72,7 @@ void lenet5(
 
     input_t layer1_out[OUT_HEIGHT_1][OUT_WIDTH_1][N_FILT_1];
     #pragma HLS ARRAY_PARTITION variable=layer1_out complete dim=0
-    nnet::conv_2d_latency<input_t, input_t, config1>(data, layer1_out, w1, b1);
+    nnet::conv_2d_resource_cl<input_t, input_t, config1, config1_mult>(data, layer1_out, w1, b1);
 
     input_t layer2_out[OUT_HEIGHT_2][OUT_WIDTH_2][N_FILT_2];
     #pragma HLS ARRAY_PARTITION variable=layer2_out complete dim=0
