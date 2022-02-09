@@ -16,6 +16,15 @@
 //    You should have received a copy of the GNU General Public License
 //    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //
+
+
+// for csynth make sure that nested exception and exception ptr files are not included since they cause erors
+#ifdef __clang__
+#define _GLIBCXX_NESTED_EXCEPTION_H 1
+#define _EXCEPTION_PTR_H
+#endif
+
+
 #include <iostream>
 
 #include "lenet5.h"
