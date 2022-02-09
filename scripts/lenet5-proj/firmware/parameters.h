@@ -39,7 +39,7 @@ struct config2_mult : nnet::dense_config {
     typedef bias2_t bias_t;
     typedef conv2d_weight_t weight_t;
     template<class x_T, class y_T, class res_T>
-    using product = nnet::product::mult<x_T, y_T, res_T>;
+    using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
 };
 
 struct config2 : nnet::conv2d_config {
@@ -109,7 +109,7 @@ struct config5_mult : nnet::dense_config {
     typedef bias5_t bias_t;
     typedef weight_default_t weight_t;
     template<class x_T, class y_T, class res_T>
-    using product = nnet::product::mult<x_T, y_T, res_T>;
+    using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
 };
 
 struct config5 : nnet::conv2d_config {
@@ -184,7 +184,7 @@ struct config9 : nnet::dense_config {
     typedef weight_default_t weight_t;
     typedef ap_uint<1> index_t;
     template<class x_T, class y_T, class res_T>
-    using product = nnet::product::mult<x_T, y_T, res_T>;
+    using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
 };
 
 // dense_1
@@ -202,7 +202,7 @@ struct config11 : nnet::dense_config {
     typedef weight_default_t weight_t;
     typedef ap_uint<1> index_t;
     template<class x_T, class y_T, class res_T>
-    using product = nnet::product::mult<x_T, y_T, res_T>;
+    using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
 };
 
 // dense_2
@@ -220,7 +220,7 @@ struct config13 : nnet::dense_config {
     typedef weight_default_t weight_t;
     typedef ap_uint<1> index_t;
     template<class x_T, class y_T, class res_T>
-    using product = nnet::product::mult<x_T, y_T, res_T>;
+    using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
 };
 
 // dense_2_linear
