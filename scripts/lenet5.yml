@@ -8,15 +8,15 @@ IOType: io_parallel
 HLSConfig:
   Model:
     Precision: 
-      weight: ap_fixed<2,-1>
-      result: ap_ufixed<1,0,AP_RND_ZERO,AP_SAT>
+      weight: ap_fixed<2,-2>
+      result: ap_ufixed<1,1,AP_RND_ZERO,AP_SAT>
       accum: ap_fixed<7,3>
     ReuseFactor: 1
     Strategy: Latency
   LayerName:
     conv2d:
       Precision:
-        weight: ap_fixed<2,0>
+        weight: ap_fixed<2,-1>
         accum: ap_fixed<5,1>
     conv2d_1:
       Precision:
@@ -26,5 +26,5 @@ HLSConfig:
     dense_2:
       Precision:
         result: ap_fixed<7,3>
-KerasJson: saved_model_no_relu_bias.json
-KerasH5: saved_weights_no_relu_bias.h5
+KerasJson: saved_model_no_relu_bias_actv1.json
+KerasH5: saved_weights_no_relu_bias_actv1.h5

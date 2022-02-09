@@ -6,7 +6,7 @@ HLSConfig:
     conv2d:
       Precision:
         accum: ap_fixed<5,1>
-        weight: ap_fixed<2,0>
+        weight: ap_fixed<2,-1>
     conv2d_1:
       Precision:
         accum: ap_fixed<8,4>
@@ -18,14 +18,14 @@ HLSConfig:
   Model:
     Precision:
       accum: ap_fixed<7,3>
-      result: ap_ufixed<1,0,AP_RND_ZERO,AP_SAT>
-      weight: ap_fixed<2,-1>
+      result: ap_ufixed<1,1,AP_RND_ZERO,AP_SAT>
+      weight: ap_fixed<2,-2>
     ReuseFactor: 1
     Strategy: Latency
 IOType: io_parallel
-KerasH5: saved_weights_no_relu_bias.h5
-KerasJson: saved_model_no_relu_bias.json
+KerasH5: saved_weights_no_relu_bias_actv1.h5
+KerasJson: saved_model_no_relu_bias_actv1.json
 OutputDir: lenet5-proj
 ProjectName: lenet5
-Stamp: dd62A48C
+Stamp: bf9AAe9B
 XilinxPart: xc7vx485tffg1761-2

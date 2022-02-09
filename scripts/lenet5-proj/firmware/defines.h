@@ -30,23 +30,23 @@
 
 //hls-fpga-machine-learning insert layer-precision
 typedef ap_fixed<7,3> accum_default_t;
-typedef ap_ufixed<1,0,AP_RND_ZERO,AP_SAT> input_t;
+typedef ap_ufixed<1,1,AP_RND_ZERO,AP_SAT> input_t;
 typedef ap_fixed<5,1> conv2d_accum_t;
-typedef ap_ufixed<1,0,AP_RND_ZERO,AP_SAT> layer2_t;
-typedef ap_fixed<2,0> conv2d_weight_t;
+typedef ap_ufixed<1,1,AP_RND_ZERO,AP_SAT> layer2_t;
+typedef ap_fixed<2,-1> conv2d_weight_t;
 typedef ap_uint<1> bias2_t;
-typedef ap_ufixed<1,0,AP_RND_ZERO,AP_SAT> layer4_t;
+typedef ap_ufixed<1,1,AP_RND_ZERO,AP_SAT> layer4_t;
 typedef ap_fixed<8,4> conv2d_1_accum_t;
-typedef ap_ufixed<1,0,AP_RND_ZERO,AP_SAT> layer5_t;
-typedef ap_fixed<2,-1> weight_default_t;
+typedef ap_ufixed<1,1,AP_RND_ZERO,AP_SAT> layer5_t;
+typedef ap_fixed<2,-2> weight_default_t;
 typedef ap_uint<1> bias5_t;
-typedef ap_ufixed<1,0,AP_RND_ZERO,AP_SAT> layer7_t;
-typedef ap_ufixed<1,0,AP_RND_ZERO,AP_SAT> layer9_t;
+typedef ap_ufixed<1,1,AP_RND_ZERO,AP_SAT> layer7_t;
+typedef ap_ufixed<1,1,AP_RND_ZERO,AP_SAT> layer9_t;
 typedef ap_uint<1> bias9_t;
-typedef ap_ufixed<1,0,AP_RND_ZERO,AP_SAT> layer11_t;
+typedef ap_ufixed<1,1,AP_RND_ZERO,AP_SAT> layer11_t;
 typedef ap_uint<1> bias11_t;
 typedef ap_fixed<7,3> layer13_t;
 typedef ap_uint<1> bias13_t;
-typedef ap_ufixed<1,0,AP_RND_ZERO,AP_SAT> result_t;
+typedef ap_ufixed<1,1,AP_RND_ZERO,AP_SAT> result_t;
 
 #endif
