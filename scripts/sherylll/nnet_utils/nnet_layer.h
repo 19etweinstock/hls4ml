@@ -23,6 +23,7 @@
 #include "nnet_common.h"
 #include "hls_stream.h"
 #include <math.h>
+#include "nnet_mult.h"
 
 namespace nnet {
 
@@ -43,6 +44,9 @@ struct layer_config
     static const bool store_weights_in_bram = false;
     static const unsigned n_zeros = 0;
     // partitioning arrays cyclically to go with roll factors?
+
+    template<class x_T, class y_T, class res_T>
+    using product = nnet::product::mult<x_T, y_T, res_T>;
 };
 
  template<class data_T, class res_T, typename CONFIG_T>
@@ -106,7 +110,7 @@ void compute_layer(
                 #pragma HLS ALLOCATION instances=mul limit=multiplier_limit operation
             }
 	    int index = ii*CONFIG_T::n_out+jj;
-	    mult[index] = cache * weights[index];
+        mult[index] = CONFIG_T::template product<data_T, typename CONFIG_T::weight_t, typename CONFIG_T::accum_t>::product(cache, weights[index]);
         }
     }
 

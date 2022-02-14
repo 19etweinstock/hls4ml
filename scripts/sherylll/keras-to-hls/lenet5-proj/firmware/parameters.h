@@ -18,8 +18,8 @@ typedef ap_fixed<5,2> accum_default_conv0_t;
 typedef ap_fixed<8,4> accum_default_conv1_t;
 typedef ap_fixed<2,0> weight_default_layer1_t;
 typedef ap_fixed<2,-1> weight_default_t;
-typedef ap_fixed<1,0> bias_default_t;
-typedef ap_ufixed<1,0, AP_RND_ZERO, AP_SAT> input_t;
+typedef ap_uint<1> bias_default_t;
+typedef ap_ufixed<1,1, AP_RND_ZERO, AP_SAT> input_t;
 typedef ap_fixed<7,3> result_t;
 #define IN_HEIGHT_1 28
 #define IN_WIDTH_1 28
@@ -63,7 +63,7 @@ struct config1_mult : nnet::dense_config {
     typedef bias_default_t bias_t;
     typedef weight_default_layer1_t weight_t;
     template<class x_T, class y_T, class res_T>
-    using product = nnet::product::mult<x_T, y_T, res_T>;
+    using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
 };
 
 struct config1 : nnet::conv2d_config {
@@ -115,7 +115,7 @@ struct config3_mult : nnet::dense_config {
     typedef bias_default_t bias_t;
     typedef weight_default_t weight_t;
     template<class x_T, class y_T, class res_T>
-    using product = nnet::product::mult<x_T, y_T, res_T>;
+    using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
 };
 
     struct config3 : nnet::conv2d_config {
@@ -169,6 +169,8 @@ struct config4 : nnet::pooling2d_config {
         typedef accum_default_t accum_t;
         typedef bias_default_t bias_t;
         typedef weight_default_t weight_t;
+        template<class x_T, class y_T, class res_T>
+        using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;      
         };
 struct config5_1 : nnet::layer_config {
         static const unsigned n_in = N_LAYER_4;
@@ -180,6 +182,8 @@ struct config5_1 : nnet::layer_config {
         typedef accum_default_t accum_t;
         typedef bias_default_t bias_t;
         typedef weight_default_t weight_t;
+        template<class x_T, class y_T, class res_T>
+        using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
         };
 struct config5_2 : nnet::layer_config {
         static const unsigned n_in = N_LAYER_4;
@@ -191,6 +195,8 @@ struct config5_2 : nnet::layer_config {
         typedef accum_default_t accum_t;
         typedef bias_default_t bias_t;
         typedef weight_default_t weight_t;
+        template<class x_T, class y_T, class res_T>
+        using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
         };
 struct config5_3 : nnet::layer_config {
         static const unsigned n_in = N_LAYER_4;
@@ -202,6 +208,8 @@ struct config5_3 : nnet::layer_config {
         typedef accum_default_t accum_t;
         typedef bias_default_t bias_t;
         typedef weight_default_t weight_t;
+        template<class x_T, class y_T, class res_T>
+        using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
         };
 struct config6_0 : nnet::layer_config {
         static const unsigned n_in = N_LAYER_5;
@@ -213,6 +221,8 @@ struct config6_0 : nnet::layer_config {
         typedef accum_default_t accum_t;
         typedef bias_default_t bias_t;
         typedef weight_default_t weight_t;
+        template<class x_T, class y_T, class res_T>
+        using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
         };
 struct config6_1 : nnet::layer_config {
         static const unsigned n_in = N_LAYER_5;
@@ -224,6 +234,8 @@ struct config6_1 : nnet::layer_config {
         typedef accum_default_t accum_t;
         typedef bias_default_t bias_t;
         typedef weight_default_t weight_t;
+        template<class x_T, class y_T, class res_T>
+        using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
         };
 struct config6_2 : nnet::layer_config {
         static const unsigned n_in = N_LAYER_5;
@@ -235,6 +247,8 @@ struct config6_2 : nnet::layer_config {
         typedef accum_default_t accum_t;
         typedef bias_default_t bias_t;
         typedef weight_default_t weight_t;
+        template<class x_T, class y_T, class res_T>
+        using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
         };
 struct config7 : nnet::layer_config {
         static const unsigned n_in = N_LAYER_6;
@@ -246,6 +260,8 @@ struct config7 : nnet::layer_config {
         typedef accum_default_t accum_t;
         typedef bias_default_t bias_t;
         typedef weight_default_t weight_t;
+        template<class x_T, class y_T, class res_T>
+        using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
         };
 
 #endif 
