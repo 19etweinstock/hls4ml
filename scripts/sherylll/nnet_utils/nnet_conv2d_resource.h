@@ -316,6 +316,34 @@ void im2col_2d_cl(
     }
 }
 
+template<class data_T, typename CONFIG_T>
+void im2col_2d_cl(
+    data_T data[CONFIG_T::in_height][CONFIG_T::in_width][CONFIG_T::n_chan],
+    data_T data_col[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan],
+    const int row,
+    const int col)
+{
+    int index = 0;
+    for (int kernel_row = 0; kernel_row < CONFIG_T::filt_height; kernel_row++) {
+        #pragma HLS UNROLL
+        int input_row = -CONFIG_T::pad_top + kernel_row + row * CONFIG_T::stride_height;
+        for (int kernel_col = 0; kernel_col < CONFIG_T::filt_width; kernel_col++) {
+            for (int channel = 0; channel < CONFIG_T::n_chan; channel++) {
+                if (input_row < 0 || input_row >= CONFIG_T::in_height) {
+                    data_col[index++] = 0;
+                } else {
+                    int input_col = -CONFIG_T::pad_left + kernel_col + col * CONFIG_T::stride_width;
+                    if (input_col >= 0 && input_col < CONFIG_T::in_width) {
+                        data_col[index++] = data[input_row][input_col][channel];
+                    } else {
+                        data_col[index++] = 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
 template<class data_T, class res_T, typename CONFIG_T, typename MULT_CONFIG>
 void conv_2d_resource_cl(
     data_T data_2d[CONFIG_T::in_height][CONFIG_T::in_width][CONFIG_T::n_chan],
@@ -323,16 +351,6 @@ void conv_2d_resource_cl(
     typename CONFIG_T::weight_t weights[CONFIG_T::filt_height * CONFIG_T::filt_width * CONFIG_T::n_chan * CONFIG_T::n_filt],
     typename CONFIG_T::bias_t   biases[CONFIG_T::n_filt])
 {
-    //Convert data to 1D
-    data_T data[CONFIG_T::in_height*CONFIG_T::in_width*CONFIG_T::n_chan];
-    #pragma HLS ARRAY_PARTITION variable=data complete dim=0
-    for(int ih = 0; ih < CONFIG_T::in_height; ih++) {
-      for(int iw = 0; iw < CONFIG_T::in_width; iw++) {
-	for(int cc = 0; cc < CONFIG_T::n_chan; cc++){
-          data[ih*CONFIG_T::in_width*CONFIG_T::n_chan + iw*CONFIG_T::n_chan + cc] = data_2d[ih][iw][cc];
-        }
-      }
-    }
     const int nin = CONFIG_T::n_chan * CONFIG_T::filt_width;
     const int nout = CONFIG_T::n_filt;
     const int rufactor = CONFIG_T::reuse_factor;
@@ -354,7 +372,7 @@ void conv_2d_resource_cl(
         WidthLoop:
         for (int j = 0; j < CONFIG_T::out_width; j++) {
             #pragma HLS PIPELINE
-            im2col_2d_cl<data_T, CONFIG_T>(data, data_col, i, j);
+            im2col_2d_cl<data_T, CONFIG_T>(data_2d, data_col, i, j);
             dense_resource<data_T, res_T, MULT_CONFIG>(data_col, res_col, weights, biases);
             FiltLoop:
             for (int k = 0; k < CONFIG_T::n_filt; k++) {

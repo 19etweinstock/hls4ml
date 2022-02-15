@@ -50,7 +50,7 @@ int max_likelihood(result_t y[N_OUTPUTS])
 	return i_likely;
 }
 
-int read_to_array(char *path, input_t x_test[IMAGE_WIDTH*IMAGE_WIDTH*1], int *y_test)
+int read_to_array(char *path, ap_ufixed<1,0,AP_RND_ZERO, AP_SAT>  x_test[IMAGE_WIDTH*IMAGE_WIDTH*1], int *y_test)
 {
 	std::ifstream inFile;
 	inFile.open(path);
@@ -548,7 +548,8 @@ int main(int argc, char **argv)
 	#elif TEST == LENET
 
 
-	input_t  data_str[IN_HEIGHT_1*IN_WIDTH_1*N_CHAN_1];
+	ap_ufixed<1,0,AP_RND_ZERO, AP_SAT>  data_str[IN_HEIGHT_1*IN_WIDTH_1*N_CHAN_1];
+	input_t  data_str_scaled[IN_HEIGHT_1*IN_WIDTH_1*N_CHAN_1];
 	input_t  input_str[IN_HEIGHT_1][IN_WIDTH_1][N_CHAN_1];
 
 	result_t probs[N_OUTPUTS] = {0};
@@ -563,7 +564,10 @@ int main(int argc, char **argv)
 			image_path += std::string(x_str);
 			strcpy(path_cstr, image_path.c_str());
 			if (read_to_array(path_cstr, data_str, &y_test) == 0){
-				nnet::unflatten<input_t, IN_HEIGHT_1, IN_WIDTH_1, N_CHAN_1>(data_str, input_str);
+				for(int i = 0; i < IN_HEIGHT_1 *IN_WIDTH_1 *N_CHAN_1; i++){
+					data_str_scaled[i] = 2 * data_str[i];
+				}
+				nnet::unflatten<input_t, IN_HEIGHT_1, IN_WIDTH_1, N_CHAN_1>(data_str_scaled, input_str);
 				unsigned short size_in = IN_HEIGHT_1*IN_WIDTH_1*N_CHAN_1;
 				unsigned short size_out =  N_OUTPUTS;
 				lenet5(input_str, probs, size_in, size_out);

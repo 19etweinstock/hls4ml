@@ -57,7 +57,7 @@ void compute_layer(
     typename CONFIG_T::bias_t    biases[CONFIG_T::n_out])
 {
     data_T cache;
-    typename CONFIG_T::accum_t mult[CONFIG_T::n_in*CONFIG_T::n_out];
+    typename CONFIG_T::weight_t mult[CONFIG_T::n_in*CONFIG_T::n_out];
     typename CONFIG_T::accum_t acc[CONFIG_T::n_out];
 
     // Use a function_instantiate in case it helps to explicitly optimize unchanging weights/biases
@@ -77,7 +77,7 @@ void compute_layer(
         int multiplier_limit  = ceil(float(CONFIG_T::n_in*CONFIG_T::n_out) / float(CONFIG_T::reuse_factor)) - floor(float(CONFIG_T::n_zeros) / float(CONFIG_T::reuse_factor));
         #pragma HLS ALLOCATION instances=mul limit=multiplier_limit operation
 
-    } else if (CONFIG_T::io_type == io_serial){
+    } /* else if (CONFIG_T::io_type == io_serial){
         // Only reduce cycle_factor if n_out is evenly divisible by reuse_factor
         // Otherwise, HLS wont be happy
         int cycle_factor = CONFIG_T::n_out;
@@ -97,6 +97,7 @@ void compute_layer(
             #pragma HLS RESOURCE variable=weights core=ROM_2P_BRAM
         }
     }
+    */
     
     // Do the matrix-multiply
     Product1: for(int ii = 0; ii < CONFIG_T::n_in; ii++) {
@@ -110,7 +111,7 @@ void compute_layer(
                 #pragma HLS ALLOCATION instances=mul limit=multiplier_limit operation
             }
 	    int index = ii*CONFIG_T::n_out+jj;
-        mult[index] = CONFIG_T::template product<data_T, typename CONFIG_T::weight_t, typename CONFIG_T::accum_t>::product(cache, weights[index]);
+        mult[index] = CONFIG_T::template product<data_T, typename CONFIG_T::weight_t, typename CONFIG_T::weight_t>::product(cache, weights[index]);
         }
     }
 

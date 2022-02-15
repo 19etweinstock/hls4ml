@@ -178,6 +178,48 @@ void pooling2d(data_T data[CONFIG_T::in_height][CONFIG_T::in_width][CONFIG_T::n_
   }
 }
 
+template<class data_T, typename CONFIG_T>
+void pooling2d_flatten(data_T data[CONFIG_T::in_height][CONFIG_T::in_width][CONFIG_T::n_filt],
+               data_T res[CONFIG_T::out_height * CONFIG_T::out_width * CONFIG_T::n_filt]){
+
+  // TODO partition the arrays according to the reuse factor
+  const int limit = pool_op_limit<CONFIG_T>();
+  #pragma HLS ALLOCATION instances=pool_op limit=limit function
+  // Add any necessary padding
+  const unsigned padded_height = CONFIG_T::in_height + CONFIG_T::pad_top + CONFIG_T::pad_bottom;
+  const unsigned padded_width = CONFIG_T::in_width + CONFIG_T::pad_left + CONFIG_T::pad_right;
+
+  for(int ff = 0; ff < CONFIG_T::n_filt; ff++){
+	  // Loop over input image y in steps of stride
+	  for(int ii = 0; ii < padded_height; ii += CONFIG_T::stride_height){
+		  // Loop over input image x in steps of stride
+		  for(int jj = 0; jj < padded_width; jj += CONFIG_T::stride_width){
+			  data_T pool[CONFIG_T::pool_height * CONFIG_T::pool_width];
+        // Keep track of number of pixels in image vs padding region
+        unsigned img_overlap = 0;
+			  // Loop over pool window y
+			  for(int kk = 0; kk < CONFIG_T::stride_height; kk++){
+				  // Loop over pool window x
+				  for(int ll = 0; ll < CONFIG_T::stride_width; ll++){
+            if(ii+kk < CONFIG_T::pad_top || ii+kk >= (padded_height - CONFIG_T::pad_bottom) || jj+ll < CONFIG_T::pad_left || jj+ll >= (padded_width - CONFIG_T::pad_right)){
+              // Add padding
+              pool[kk * CONFIG_T::stride_width + ll] = 0;
+            }else{
+  					  pool[kk * CONFIG_T::stride_width + ll] = data[ii + kk][jj + ll][ff];
+              img_overlap++;
+            }
+				  }
+			  }
+			  // do the pooling
+        // TODO in the case of average pooling, need to reduce height * width to area of pool window
+        // not overlapping padding region
+			  res[ii/CONFIG_T::stride_height * CONFIG_T::out_width + jj/CONFIG_T::stride_width + ff * CONFIG_T::out_height * CONFIG_T::out_width] =
+					  pool_op<data_T, CONFIG_T::pool_height*CONFIG_T::pool_width, CONFIG_T::pool_op>(pool);
+		  }
+	  }
+  }
+}
+
 }
 
 #endif

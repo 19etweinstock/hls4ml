@@ -2,7 +2,7 @@
 #    HLS4ML
 #################
 array set opt {
-  reset  0
+  reset  1
   csim   1
   synth  1
   cosim  1
@@ -28,7 +28,7 @@ add_files -tb firmware/weights
 open_solution -reset "solution1"
 catch {config_array_partition -maximum_size 4096}
 set_part {xc7vx485tffg1761-2}
-create_clock -period 10 -name default
+create_clock -period 30 -name default
 
 if {$opt(csim)} {
   puts "***** C SIMULATION *****"

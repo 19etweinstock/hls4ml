@@ -84,10 +84,7 @@ void lenet5(
 
     input_t layer4_out[OUT_HEIGHT_4*OUT_WIDTH_4*N_FILT_4];
     #pragma HLS ARRAY_PARTITION variable=layer4_out complete dim=0
-    input_t pool2d_layer4_out[OUT_HEIGHT_4][OUT_WIDTH_4][N_FILT_4];
-    #pragma HLS ARRAY_PARTITION variable=pool2d_layer4_out complete dim=0
-    nnet::pooling2d<input_t, config4>(layer3_out, pool2d_layer4_out);
-    nnet::flatten<input_t, OUT_HEIGHT_4, OUT_WIDTH_4, N_FILT_4>(pool2d_layer4_out, layer4_out);
+    nnet::pooling2d_flatten<input_t, config4>(layer3_out, layer4_out);
 
     input_t layer5_out[N_LAYER_5];
     #pragma HLS ARRAY_PARTITION variable=layer5_out complete dim=0

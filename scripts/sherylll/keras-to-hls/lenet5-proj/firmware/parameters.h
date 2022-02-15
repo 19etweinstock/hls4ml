@@ -13,11 +13,12 @@
 #include "nnet_pooling.h"
 
 //hls-fpga-machine-learning insert numbers
-typedef ap_fixed<7,3> accum_default_t;
-typedef ap_fixed<5,2> accum_default_conv0_t;
-typedef ap_fixed<8,4> accum_default_conv1_t;
+typedef ap_fixed<7,4> accum_default_t;
+typedef ap_fixed<5,3> accum_default_conv0_t;
+typedef ap_fixed<8,5> accum_default_conv1_t;
 typedef ap_fixed<2,0> weight_default_layer1_t;
 typedef ap_fixed<2,-1> weight_default_t;
+typedef ap_fixed<2,-2> weight_default_layer7_t;
 typedef ap_uint<1> bias_default_t;
 typedef ap_ufixed<1,1, AP_RND_ZERO, AP_SAT> input_t;
 typedef ap_fixed<7,3> result_t;
@@ -257,9 +258,9 @@ struct config7 : nnet::layer_config {
         static const unsigned reuse_factor = 1;
         static const unsigned n_zeros = 0;
         static const bool store_weights_in_bram = false;
-        typedef accum_default_t accum_t;
+        typedef result_t accum_t;
         typedef bias_default_t bias_t;
-        typedef weight_default_t weight_t;
+        typedef weight_default_layer7_t weight_t;
         template<class x_T, class y_T, class res_T>
         using product = nnet::product::WAGE_binary<x_T, y_T, res_T>;
         };
