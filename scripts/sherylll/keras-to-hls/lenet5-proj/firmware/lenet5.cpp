@@ -100,41 +100,41 @@ void lenet5(
 }
 
 void compute_layer5(input_t layer4_out[N_LAYER_4], input_t logits5[N_LAYER_5]) {
-    input_t logits5_0[32];
-    #pragma HLS ARRAY_PARTITION variable=logits5_0 complete dim=0
-    input_t logits5_1[32];
-    #pragma HLS ARRAY_PARTITION variable=logits5_1 complete dim=0
-    input_t logits5_2[32];
-    #pragma HLS ARRAY_PARTITION variable=logits5_2 complete dim=0
-    input_t logits5_3[24];
-    #pragma HLS ARRAY_PARTITION variable=logits5_3 complete dim=0
-    input_t logits5_0to1[64];
-    #pragma HLS ARRAY_PARTITION variable=logits5_0to1 complete dim=0
-    input_t logits5_0to2[96];
-    #pragma HLS ARRAY_PARTITION variable=logits5_0to2 complete dim=0
-    nnet::compute_layer<input_t, input_t, config5_0>(layer4_out, logits5_0, w5_0, b5_0);
-    nnet::compute_layer<input_t, input_t, config5_1>(layer4_out, logits5_1, w5_1, b5_1);
-    nnet::compute_layer<input_t, input_t, config5_2>(layer4_out, logits5_2, w5_2, b5_2);
-    nnet::compute_layer<input_t, input_t, config5_3>(layer4_out, logits5_3, w5_3, b5_3);
-    nnet::merge<input_t, 32, 32>(logits5_0, logits5_1, logits5_0to1);
-    nnet::merge<input_t, 64, 32>(logits5_0to1, logits5_2, logits5_0to2);
-    nnet::merge<input_t, 96, 24>(logits5_0to2, logits5_3, logits5);
+    // input_t logits5_0[32];
+    // #pragma HLS ARRAY_PARTITION variable=logits5_0 complete dim=0
+    // input_t logits5_1[32];
+    // #pragma HLS ARRAY_PARTITION variable=logits5_1 complete dim=0
+    // input_t logits5_2[32];
+    // #pragma HLS ARRAY_PARTITION variable=logits5_2 complete dim=0
+    // input_t logits5_3[24];
+    // #pragma HLS ARRAY_PARTITION variable=logits5_3 complete dim=0
+    // input_t logits5_0to1[64];
+    // #pragma HLS ARRAY_PARTITION variable=logits5_0to1 complete dim=0
+    // input_t logits5_0to2[96];
+    // #pragma HLS ARRAY_PARTITION variable=logits5_0to2 complete dim=0
+    nnet::compute_layer<input_t, input_t, config5_0>(layer4_out, logits5, w5_0, b5_0);
+    nnet::compute_layer<input_t, input_t, config5_1>(layer4_out, &logits5[32], w5_1, b5_1);
+    nnet::compute_layer<input_t, input_t, config5_2>(layer4_out, &logits5[64], w5_2, b5_2);
+    nnet::compute_layer<input_t, input_t, config5_3>(layer4_out, &logits5[96], w5_3, b5_3);
+    // nnet::merge<input_t, 32, 32>(logits5_0, logits5_1, logits5_0to1);
+    // nnet::merge<input_t, 64, 32>(logits5_0to1, logits5_2, logits5_0to2);
+    // nnet::merge<input_t, 96, 24>(logits5_0to2, logits5_3, logits5);
 }
 
 
 void compute_layer6(input_t layer5_out[N_LAYER_5], input_t logits6[N_LAYER_6]) {
-    input_t logits6_0[34];
-    #pragma HLS ARRAY_PARTITION variable=logits6_0 complete dim=0
-    input_t logits6_1[34];
-    #pragma HLS ARRAY_PARTITION variable=logits6_1 complete dim=0
-    input_t logits6_2[16];
-    #pragma HLS ARRAY_PARTITION variable=logits6_2 complete dim=0
-    input_t logits6_0to1[68];
-    #pragma HLS ARRAY_PARTITION variable=logits6_0to1 complete dim=0
-    nnet::compute_layer<input_t, input_t, config6_0>(layer5_out, logits6_0, w6_0, b6_0);
-    nnet::compute_layer<input_t, input_t, config6_1>(layer5_out, logits6_1, w6_1, b6_1);
-    nnet::compute_layer<input_t, input_t, config6_2>(layer5_out, logits6_2, w6_2, b6_2);
-    nnet::merge<input_t, 34, 34>(logits6_0, logits6_1, logits6_0to1);
-    nnet::merge<input_t, 68, 16>(logits6_0to1, logits6_2, logits6);
+    // input_t logits6_0[34];
+    // #pragma HLS ARRAY_PARTITION variable=logits6_0 complete dim=0
+    // input_t logits6_1[34];
+    // #pragma HLS ARRAY_PARTITION variable=logits6_1 complete dim=0
+    // input_t logits6_2[16];
+    // #pragma HLS ARRAY_PARTITION variable=logits6_2 complete dim=0
+    // input_t logits6_0to1[68];
+    // #pragma HLS ARRAY_PARTITION variable=logits6_0to1 complete dim=0
+    nnet::compute_layer<input_t, input_t, config6_0>(layer5_out, logits6, w6_0, b6_0);
+    nnet::compute_layer<input_t, input_t, config6_1>(layer5_out, &logits6[34], w6_1, b6_1);
+    nnet::compute_layer<input_t, input_t, config6_2>(layer5_out, &logits6[68], w6_2, b6_2);
+    // nnet::merge<input_t, 34, 34>(logits6_0, logits6_1, logits6_0to1);
+    // nnet::merge<input_t, 68, 16>(logits6_0to1, logits6_2, logits6);
 }
 

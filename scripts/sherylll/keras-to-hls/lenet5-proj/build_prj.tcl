@@ -26,9 +26,9 @@ add_files -tb lenet5_test.cpp -cflags "-I[file normalize ..\\..\\nnet_utils] -st
 add_files -tb firmware/weights
 #add_files -tb tb_data
 open_solution -reset "solution1"
-catch {config_array_partition -maximum_size 4096}
+catch {config_array_partition -maximum_size 8192}
 set_part {xc7vx485tffg1761-2}
-create_clock -period 30 -name default
+create_clock -period 10 -name default
 
 if {$opt(csim)} {
   puts "***** C SIMULATION *****"
