@@ -13,7 +13,7 @@ class Product{
     public:
     static y_T product(x_T a, w_T w){
         // 'Normal' product
-        #pragma HLS INLINE
+        // #pragma HLS INLINE
         return a * w;
     }
     static void limit(unsigned multiplier_limit) {} // Nothing to do here
@@ -23,12 +23,12 @@ class mult : public Product<x_T, w_T, y_T>{
     public:
     static y_T product(x_T a, w_T w){
         // 'Normal' product
-        #pragma HLS INLINE
+        // #pragma HLS INLINE
         return a * w;
     }
     static void limit(unsigned multiplier_limit){
-        #pragma HLS INLINE
-        #pragma HLS ALLOCATION instances=mul limit=multiplier_limit operation
+        // #pragma HLS INLINE
+        // #pragma HLS ALLOCATION instances=mul limit=multiplier_limit operation
     }
 };
 
@@ -37,7 +37,7 @@ class WAGE_binary : public Product<x_T, w_T, y_T>{
     public:
     static y_T product(x_T a, w_T w){
         // Specialisation for 1-bit data, arbitrary weight
-        #pragma HLS INLINE
+        // #pragma HLS INLINE
         return a == 0 ? (w_T) 0 : w;
     }
 };

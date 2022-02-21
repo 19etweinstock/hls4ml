@@ -55,10 +55,10 @@ void lenet5(
 {
 
     //hls-fpga-machine-learning insert IO
-    #pragma HLS ARRAY_RESHAPE variable=data complete dim=0 
-    #pragma HLS ARRAY_RESHAPE variable=res complete dim=0 
-    #pragma HLS INTERFACE ap_vld port=data,res 
-    #pragma HLS PIPELINE 
+    // #pragma HLS ARRAY_RESHAPE variable=data complete dim=0 
+    // #pragma HLS ARRAY_RESHAPE variable=res complete dim=0 
+    // #pragma HLS INTERFACE ap_vld port=data,res 
+    // #pragma HLS PIPELINE 
 
 
     const_size_in   = IN_HEIGHT_1*IN_WIDTH_1*N_CHAN_1;
@@ -71,27 +71,27 @@ void lenet5(
     //hls-fpga-machine-learning insert layers
 
     input_t layer1_out[OUT_HEIGHT_1][OUT_WIDTH_1][N_FILT_1];
-    #pragma HLS ARRAY_PARTITION variable=layer1_out complete dim=0
+    // // #pragma HLS ARRAY_PARTITION variable=layer1_out complete dim=0
     nnet::conv_2d_resource_cl<input_t, input_t, config1, config1_mult>(data, layer1_out, w1, b1);
 
     input_t layer2_out[OUT_HEIGHT_2][OUT_WIDTH_2][N_FILT_2];
-    #pragma HLS ARRAY_PARTITION variable=layer2_out complete dim=0
+    // // #pragma HLS ARRAY_PARTITION variable=layer2_out complete dim=0
     nnet::pooling2d<input_t, config2>(layer1_out, layer2_out);
 
     input_t layer3_out[OUT_HEIGHT_3][OUT_WIDTH_3][N_FILT_3];
-    #pragma HLS ARRAY_PARTITION variable=layer3_out complete dim=0
+    // // #pragma HLS ARRAY_PARTITION variable=layer3_out complete dim=0
     nnet::conv_2d_resource_cl<input_t, input_t, config3, config3_mult>(layer2_out, layer3_out, w3, b3);
 
     input_t layer4_out[OUT_HEIGHT_4*OUT_WIDTH_4*N_FILT_4];
-    #pragma HLS ARRAY_PARTITION variable=layer4_out complete dim=0
+    // // #pragma HLS ARRAY_PARTITION variable=layer4_out complete dim=0
     nnet::pooling2d_flatten<input_t, config4>(layer3_out, layer4_out);
 
     input_t layer5_out[N_LAYER_5];
-    #pragma HLS ARRAY_PARTITION variable=layer5_out complete dim=0
+    // // #pragma HLS ARRAY_PARTITION variable=layer5_out complete dim=0
     compute_layer5(layer4_out, layer5_out);
 
     input_t layer6_out[N_LAYER_6];
-    #pragma HLS ARRAY_PARTITION variable=layer6_out complete dim=0
+    // // #pragma HLS ARRAY_PARTITION variable=layer6_out complete dim=0
     compute_layer6(layer5_out, layer6_out);
 
     nnet::compute_layer<input_t, result_t, config7>(layer6_out, res, w7, b7);
@@ -100,18 +100,19 @@ void lenet5(
 }
 
 void compute_layer5(input_t layer4_out[N_LAYER_4], input_t logits5[N_LAYER_5]) {
+    // #pragma HLS INLINE
     // input_t logits5_0[32];
-    // #pragma HLS ARRAY_PARTITION variable=logits5_0 complete dim=0
+    // // // #pragma HLS ARRAY_PARTITION variable=logits5_0 complete dim=0
     // input_t logits5_1[32];
-    // #pragma HLS ARRAY_PARTITION variable=logits5_1 complete dim=0
+    // // // #pragma HLS ARRAY_PARTITION variable=logits5_1 complete dim=0
     // input_t logits5_2[32];
-    // #pragma HLS ARRAY_PARTITION variable=logits5_2 complete dim=0
+    // // // #pragma HLS ARRAY_PARTITION variable=logits5_2 complete dim=0
     // input_t logits5_3[24];
-    // #pragma HLS ARRAY_PARTITION variable=logits5_3 complete dim=0
+    // // // #pragma HLS ARRAY_PARTITION variable=logits5_3 complete dim=0
     // input_t logits5_0to1[64];
-    // #pragma HLS ARRAY_PARTITION variable=logits5_0to1 complete dim=0
+    // // // #pragma HLS ARRAY_PARTITION variable=logits5_0to1 complete dim=0
     // input_t logits5_0to2[96];
-    // #pragma HLS ARRAY_PARTITION variable=logits5_0to2 complete dim=0
+    // // // #pragma HLS ARRAY_PARTITION variable=logits5_0to2 complete dim=0
     nnet::compute_layer<input_t, input_t, config5_0>(layer4_out, logits5, w5_0, b5_0);
     nnet::compute_layer<input_t, input_t, config5_1>(layer4_out, &logits5[32], w5_1, b5_1);
     nnet::compute_layer<input_t, input_t, config5_2>(layer4_out, &logits5[64], w5_2, b5_2);
@@ -123,14 +124,15 @@ void compute_layer5(input_t layer4_out[N_LAYER_4], input_t logits5[N_LAYER_5]) {
 
 
 void compute_layer6(input_t layer5_out[N_LAYER_5], input_t logits6[N_LAYER_6]) {
+    // #pragma HLS INLINE
     // input_t logits6_0[34];
-    // #pragma HLS ARRAY_PARTITION variable=logits6_0 complete dim=0
+    // // // #pragma HLS ARRAY_PARTITION variable=logits6_0 complete dim=0
     // input_t logits6_1[34];
-    // #pragma HLS ARRAY_PARTITION variable=logits6_1 complete dim=0
+    // // // #pragma HLS ARRAY_PARTITION variable=logits6_1 complete dim=0
     // input_t logits6_2[16];
-    // #pragma HLS ARRAY_PARTITION variable=logits6_2 complete dim=0
+    // // // #pragma HLS ARRAY_PARTITION variable=logits6_2 complete dim=0
     // input_t logits6_0to1[68];
-    // #pragma HLS ARRAY_PARTITION variable=logits6_0to1 complete dim=0
+    // // // #pragma HLS ARRAY_PARTITION variable=logits6_0to1 complete dim=0
     nnet::compute_layer<input_t, input_t, config6_0>(layer5_out, logits6, w6_0, b6_0);
     nnet::compute_layer<input_t, input_t, config6_1>(layer5_out, &logits6[34], w6_1, b6_1);
     nnet::compute_layer<input_t, input_t, config6_2>(layer5_out, &logits6[68], w6_2, b6_2);

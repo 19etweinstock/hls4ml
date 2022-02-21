@@ -115,7 +115,7 @@ void conv_2d_latency(
   
     //Convert data to 1D
     data_T data_1d[CONFIG_T::in_height*CONFIG_T::in_width*CONFIG_T::n_chan];
-    #pragma HLS ARRAY_PARTITION variable=data_1d complete dim=0
+    // // #pragma HLS ARRAY_PARTITION variable=data_1d complete dim=0
     for(int ih = 0; ih < CONFIG_T::in_height; ih++) {
       for(int iw = 0; iw < CONFIG_T::in_width; iw++) {
 	for(int cc = 0; cc < CONFIG_T::n_chan; cc++){
@@ -128,22 +128,22 @@ void conv_2d_latency(
     typename CONFIG_T::accum_t mult[CONFIG_T::out_height * CONFIG_T::out_width * CONFIG_T::n_filt * CONFIG_T::n_chan * CONFIG_T::filt_height * CONFIG_T::filt_width];
     typename CONFIG_T::accum_t acc[CONFIG_T::out_height * CONFIG_T::out_width * CONFIG_T::n_filt];
 
-    #pragma HLS ARRAY_PARTITION variable=mult complete dim=0
-    #pragma HLS ARRAY_PARTITION variable=acc complete dim=0
+    // // #pragma HLS ARRAY_PARTITION variable=mult complete dim=0
+    // // #pragma HLS ARRAY_PARTITION variable=acc complete dim=0
     
     // Use a function_instantiate in case it helps to explicitly optimize unchanging weights/biases 
-//    #pragma HLS function_instantiate variable=weights,biases
+//    // #pragma HLS function_instantiate variable=weights,biases
     
     // Parallel mode
-    // #pragma HLS ARRAY_PARTITION variable=biases complete dim=0
+    // // // #pragma HLS ARRAY_PARTITION variable=biases complete dim=0
   
     // Limit multipliers to control parallelization
     const int multiplier_limit = CONFIG_T::multiplier_limit;
-    #pragma HLS ALLOCATION instances=mul limit=multiplier_limit operation
+    // #pragma HLS ALLOCATION instances=mul limit=multiplier_limit operation
     
     // Convolve, saving all multiplication results to accumulate later
     ConvOutHeight: for(int oh = 0; oh < CONFIG_T::out_height; oh++) {
-    // #pragma HLS unroll factor=4 region
+    // // #pragma HLS unroll factor=4 region
       ConvOutWidth: for(int ow = 0; ow < CONFIG_T::out_width; ow++) {
         ConvFilt: for(int ff = 0; ff < CONFIG_T::n_filt; ff++){
           ConvChan: for(int cc = 0; cc < CONFIG_T::n_chan; cc++){

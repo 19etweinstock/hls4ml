@@ -2,10 +2,10 @@
 #    HLS4ML
 #################
 array set opt {
-  reset  1
-  csim   1
+  reset  0
+  csim   0
   synth  1
-  cosim  1
+  cosim  0
   export 1
 }
 

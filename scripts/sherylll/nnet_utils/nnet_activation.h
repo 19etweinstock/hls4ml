@@ -51,12 +51,12 @@ template<class data_T, class res_T, typename CONFIG_T>
 void  linear(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
 {
     if (CONFIG_T::io_type == io_parallel){
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
-            #pragma HLS PIPELINE
+            // #pragma HLS PIPELINE
         }
         res[ii] = data[ii];
     }
@@ -71,13 +71,13 @@ template<class data_T, class res_T, typename CONFIG_T>
 void  relu(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
 {
     if (CONFIG_T::io_type == io_parallel){
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     data_T datareg;
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
-            #pragma HLS PIPELINE
+            // #pragma HLS PIPELINE
         }
         datareg = data[ii];
         if (datareg > 0) res[ii] = datareg;
@@ -89,13 +89,13 @@ template<class data_T, class res_T, int MAX_INT, typename CONFIG_T>
 void  relu_max(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
 {
     if (CONFIG_T::io_type == io_parallel){
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     data_T datareg;
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
-            #pragma HLS PIPELINE
+            // #pragma HLS PIPELINE
         }
         datareg = data[ii];
         if (datareg < 0) res[ii] = 0;
@@ -150,7 +150,7 @@ void  sigmoid(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
     }
 
     if (CONFIG_T::io_type == io_parallel){
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     // Index into the lookup table based on data
@@ -158,7 +158,7 @@ void  sigmoid(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
     int index;
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
-            #pragma HLS PIPELINE
+            // #pragma HLS PIPELINE
         }
         data_round = data[ii]*CONFIG_T::table_size/16;
         index = data_round + 8*CONFIG_T::table_size/16;
@@ -224,7 +224,7 @@ void  softmax(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
 
     if (CONFIG_T::io_type == io_parallel){
         // Note: This is going to be a resource hog to run with pipeline, but hey, whatever
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     // Index into the lookup table based on data for exponentials
@@ -239,7 +239,7 @@ void  softmax(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
     }
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
       if (CONFIG_T::io_type == io_serial){
-          #pragma HLS PIPELINE
+          // #pragma HLS PIPELINE
       }
       for (int jj=0; jj<CONFIG_T::n_in; jj++) {
 	if (ii==jj) exp_diff_res = 1;
@@ -300,7 +300,7 @@ void  tanh(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
     }
 
     if (CONFIG_T::io_type == io_parallel){
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     // Index into the lookup table based on data
@@ -308,7 +308,7 @@ void  tanh(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
     int index;
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
-            #pragma HLS PIPELINE
+            // #pragma HLS PIPELINE
         }
         data_round = data[ii]*CONFIG_T::table_size/8;
         index = data_round + 4*CONFIG_T::table_size/8;
@@ -326,7 +326,7 @@ template<class data_T, class res_T, typename CONFIG_T>
 void  hard_sigmoid(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
 {
     if (CONFIG_T::io_type == io_parallel){
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     data_T datareg;
@@ -334,7 +334,7 @@ void  hard_sigmoid(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
     data_T shift = (data_T) 0.5;
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
-            #pragma HLS PIPELINE
+            // #pragma HLS PIPELINE
         }
         datareg = slope * data[ii] + shift;
         if (datareg > 1) datareg = 1;
@@ -350,13 +350,13 @@ template<class data_T, class res_T, typename CONFIG_T>
 void  leaky_relu(data_T data[CONFIG_T::n_in], data_T alpha, res_T res[CONFIG_T::n_in])
 {
     if (CONFIG_T::io_type == io_parallel){
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     data_T datareg;
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
-            #pragma HLS PIPELINE
+            // #pragma HLS PIPELINE
         }
         datareg = data[ii];
         if (datareg > 0) res[ii] = datareg;
@@ -371,13 +371,13 @@ template<class data_T, class res_T, typename CONFIG_T>
 void  thresholded_relu(data_T data[CONFIG_T::n_in], data_T theta, res_T res[CONFIG_T::n_in])
 {
     if (CONFIG_T::io_type == io_parallel){
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     data_T datareg;
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
-            #pragma HLS PIPELINE
+            // #pragma HLS PIPELINE
         }
         datareg = data[ii];
         if (datareg > theta) res[ii] = datareg;
@@ -424,7 +424,7 @@ void  softplus(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
     }
 
     if (CONFIG_T::io_type == io_parallel){
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     // Index into the lookup table based on data
@@ -432,7 +432,7 @@ void  softplus(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
     int index;
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
-            #pragma HLS PIPELINE
+            // #pragma HLS PIPELINE
         }
         data_round = data[ii]*CONFIG_T::table_size/16;
         index = data_round + 8*CONFIG_T::table_size/16;
@@ -481,7 +481,7 @@ void  softsign(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
     }
 
     if (CONFIG_T::io_type == io_parallel){
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     // Index into the lookup table based on data
@@ -489,7 +489,7 @@ void  softsign(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
     int index;
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
-            #pragma HLS PIPELINE
+            // #pragma HLS PIPELINE
         }
         data_round = data[ii]*CONFIG_T::table_size/16;
         index = data_round + 8*CONFIG_T::table_size/16;
@@ -538,7 +538,7 @@ void  elu(data_T data[CONFIG_T::n_in], const res_T alpha, res_T res[CONFIG_T::n_
     }
 
     if (CONFIG_T::io_type == io_parallel){
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     data_T datareg;
@@ -546,7 +546,7 @@ void  elu(data_T data[CONFIG_T::n_in], const res_T alpha, res_T res[CONFIG_T::n_
     int index;
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
-            #pragma HLS PIPELINE
+            // #pragma HLS PIPELINE
         }
         datareg = data[ii];
         if (datareg >= 0) {
@@ -604,7 +604,7 @@ void  selu(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
     }
 
     if (CONFIG_T::io_type == io_parallel){
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     data_T datareg;
@@ -612,7 +612,7 @@ void  selu(data_T data[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
     int index;
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
-            #pragma HLS PIPELINE
+            // #pragma HLS PIPELINE
         }
         datareg = data[ii];
         if (datareg >= 0) {
@@ -632,13 +632,13 @@ template<class data_T, class res_T, typename CONFIG_T>
 void  prelu(data_T data[CONFIG_T::n_in], data_T alpha[CONFIG_T::n_in], res_T res[CONFIG_T::n_in])
 {
     if (CONFIG_T::io_type == io_parallel){
-        #pragma HLS PIPELINE
+        // #pragma HLS PIPELINE
     }
 
     data_T datareg;
     for (int ii=0; ii<CONFIG_T::n_in; ii++) {
         if (CONFIG_T::io_type == io_serial){
-            #pragma HLS PIPELINE
+            // #pragma HLS PIPELINE
         }
         datareg = data[ii];
         if (datareg > 0) res[ii] = datareg;
