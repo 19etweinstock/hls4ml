@@ -13,4 +13,5 @@ docs/autodoc/*
 hls4mlprj_*
 /venv-hls4ml
 /scripts/sherylll/keras-to-hls/lenet5-proj/lenet5_prj
+/scripts/sherylll/keras-to-hls/lenet5-proj/lenet5_prj_vitis
 /scripts/lenet5-proj/lenet5_prj

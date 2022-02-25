@@ -28,11 +28,11 @@
 #include "nnet_helpers.h"
 
 #define IMAGE_WIDTH 28
-#ifdef C_COSIM
-  #define TEST_SIZE 10
-#else
-  #define TEST_SIZE 100 // full test set has 10000 samples
-#endif
+// #ifdef C_COSIM
+//   #define TEST_SIZE 10
+// #else
+  #define TEST_SIZE 1 // full test set has 10000 samples
+// #endif
 
 
 int max_likelihood(result_t y[N_OUTPUTS])
@@ -555,6 +555,8 @@ int main(int argc, char **argv)
 	result_t probs[N_OUTPUTS] = {0};
 	int y_test, counter = 0;
 
+	// this won't compile
+
 	char x_str[10] = "";
 	char path_cstr[30];
 
@@ -568,9 +570,7 @@ int main(int argc, char **argv)
 					data_str_scaled[i] = 2 * data_str[i];
 				}
 				nnet::unflatten<input_t, IN_HEIGHT_1, IN_WIDTH_1, N_CHAN_1>(data_str_scaled, input_str);
-				unsigned short size_in = IN_HEIGHT_1*IN_WIDTH_1*N_CHAN_1;
-				unsigned short size_out =  N_OUTPUTS;
-				lenet5(input_str, probs, size_in, size_out);
+				lenet5(input_str, probs);
 
 				int y_pred = max_likelihood(probs);
 				std::cout << im << " " << (y_pred == y_test)<< " " << y_pred << " " << y_test << std::endl;

@@ -28,13 +28,12 @@
 
 // Prototype of top level function for C-synthesis
 void lenet5(
-      input_t data[IN_HEIGHT_1][IN_WIDTH_1][N_CHAN_1],
-      result_t res[N_OUTPUTS],
-      unsigned short &const_size_in,
-      unsigned short &const_size_out);
+      input_t* input,
+      result_t* zero, result_t* one, result_t* two, result_t* three, result_t* four,
+      result_t* five, result_t* six, result_t* seven, result_t* eight, result_t* nine, result_t* max);
 
-void compute_layer5(input_t layer4_out[N_LAYER_4], input_t logits5[N_LAYER_5]);
-void compute_layer6(input_t layer5_out[N_LAYER_5], input_t logits6[N_LAYER_6]);
+void compute_layer5(layer_t layer4_out[N_LAYER_4], layer_t logits5[N_LAYER_5]);
+void compute_layer6(layer_t layer5_out[N_LAYER_5], layer_t logits6[N_LAYER_6]);
 
 #endif
 

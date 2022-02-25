@@ -2,7 +2,7 @@
 #    HLS4ML
 #################
 array set opt {
-  reset  0
+  reset  1
   csim   0
   synth  1
   cosim  0
@@ -44,7 +44,7 @@ if {$opt(synth)} {
   }
   if {$opt(export)} {
     puts "***** EXPORT IP *****"
-    export_design -format ip_catalog
+    export_design -format ip_catalog -version 0.0.6
   }
 }
 
