@@ -51,7 +51,7 @@ void lenet5(
 		  input_t* input,
 		  result_t* zero, result_t* one, result_t* two, result_t* three, result_t* four,
           result_t* five, result_t* six, result_t* seven, result_t* eight, result_t* nine,
-          result_t* max
+          max_t* max
         )
 {
 
@@ -116,7 +116,7 @@ void lenet5(
 
     result_t max_val = res[0];
     *max = 0;
-    for (int i = 1; i< 9; i++){
+    for (int i = 1; i< 10; i++){
         if (res[i] > max_val){
             max_val = res[i];
             *max = i;

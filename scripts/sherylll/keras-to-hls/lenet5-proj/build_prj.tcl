@@ -3,9 +3,9 @@
 #################
 array set opt {
   reset  1
-  csim   0
+  csim   1
   synth  1
-  cosim  0
+  cosim  1
   export 1
 }
 
@@ -44,7 +44,7 @@ if {$opt(synth)} {
   }
   if {$opt(export)} {
     puts "***** EXPORT IP *****"
-    export_design -format ip_catalog -version 0.0.6
+    export_design -format ip_catalog -version 0.0.9
   }
 }
 

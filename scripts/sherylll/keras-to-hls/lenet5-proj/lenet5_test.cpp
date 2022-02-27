@@ -28,11 +28,11 @@
 #include "nnet_helpers.h"
 
 #define IMAGE_WIDTH 28
-// #ifdef C_COSIM
-//   #define TEST_SIZE 10
-// #else
-  #define TEST_SIZE 1 // full test set has 10000 samples
-// #endif
+#ifdef C_COSIM
+  #define TEST_SIZE 9
+#else
+  #define TEST_SIZE 100 // full test set has 10000 samples
+#endif
 
 
 int max_likelihood(result_t y[N_OUTPUTS])
@@ -549,8 +549,8 @@ int main(int argc, char **argv)
 
 
 	ap_ufixed<1,0,AP_RND_ZERO, AP_SAT>  data_str[IN_HEIGHT_1*IN_WIDTH_1*N_CHAN_1];
-	input_t  data_str_scaled[IN_HEIGHT_1*IN_WIDTH_1*N_CHAN_1];
-	input_t  input_str[IN_HEIGHT_1][IN_WIDTH_1][N_CHAN_1];
+	layer_t  data_str_scaled[IN_HEIGHT_1*IN_WIDTH_1*N_CHAN_1];
+	input_t  input_str;
 
 	result_t probs[N_OUTPUTS] = {0};
 	int y_test, counter = 0;
@@ -569,12 +569,19 @@ int main(int argc, char **argv)
 				for(int i = 0; i < IN_HEIGHT_1 *IN_WIDTH_1 *N_CHAN_1; i++){
 					data_str_scaled[i] = 2 * data_str[i];
 				}
-				nnet::unflatten<input_t, IN_HEIGHT_1, IN_WIDTH_1, N_CHAN_1>(data_str_scaled, input_str);
-				lenet5(input_str, probs);
+				input_str = 0;
+				for (int i = IN_HEIGHT_1 * IN_HEIGHT_1 * N_CHAN_1 -1; i >= 0; i--){
+					input_str = (input_str << 1) + data_str_scaled[i];
+				}
 
-				int y_pred = max_likelihood(probs);
-				std::cout << im << " " << (y_pred == y_test)<< " " << y_pred << " " << y_test << std::endl;
-				if (y_pred == y_test)
+				result_t zero, one, two, three, four, five, six, seven, eight, nine;
+				max_t max;
+
+				lenet5(&input_str, &zero, &one, &two, &three, &four, &five, &six, &seven, &eight, &nine, &max);
+
+				// int y_pred = max_likelihood(probs);
+				std::cout << im << " " << (max == y_test)<< " " << max << " " << y_test << std::endl;
+				if (max == y_test)
 					counter++;
 			}
 			else
