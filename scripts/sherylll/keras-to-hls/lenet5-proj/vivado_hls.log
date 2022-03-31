@@ -6,7 +6,7 @@
 
 source C:/Xilinx/Vivado/2020.1/scripts/vivado_hls/hls.tcl -notrace
 INFO: [HLS 200-10] Running 'C:/Xilinx/Vivado/2020.1/bin/unwrapped/win64.o/vivado_hls.exe'
-INFO: [HLS 200-10] For user 'eweinstock6' on host 'mirc161-07' (Windows NT_amd64 version 6.2) on Fri Feb 25 13:54:00 -0500 2022
+INFO: [HLS 200-10] For user 'eweinstock6' on host 'mirc161-07' (Windows NT_amd64 version 6.2) on Tue Mar 01 12:17:32 -0500 2022
 INFO: [HLS 200-10] In directory 'C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/keras-to-hls/lenet5-proj'
 Sourcing Tcl script 'build_prj.tcl'
 INFO: [HLS 200-10] Opening and resetting project 'C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/keras-to-hls/lenet5-proj/lenet5_prj'.
@@ -76,16 +76,37 @@ C:/Xilinx/Vivado/2020.1/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note:
 7 1 9 9
 8 1 5 5
 9 1 9 9
-10
+10 1 0 0
+11 1 6 6
+12 1 9 9
+13 1 0 0
+14 1 1 1
+15 1 5 5
+16 1 9 9
+17 1 7 7
+18 0 5 3
+19 1 4 4
+20 1 9 9
+21 1 6 6
+22 1 6 6
+23 1 5 5
+24 1 4 4
+25 1 0 0
+26 1 7 7
+27 1 4 4
+28 1 0 0
+29 1 1 1
+30 1 3 3
+30
 INFO: [SIM 211-1] CSim done with 0 errors.
 INFO: [SIM 211-3] *************** CSIM finish ***************
 ***** C/RTL SYNTHESIS *****
 INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
 INFO: [HLS 200-10] Analyzing design file 'firmware/lenet5.cpp' ... 
-INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:04 ; elapsed = 00:01:05 . Memory (MB): peak = 934.945 ; gain = 838.773
-INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:04 ; elapsed = 00:01:05 . Memory (MB): peak = 934.945 ; gain = 838.773
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:03 ; elapsed = 00:01:07 . Memory (MB): peak = 935.484 ; gain = 839.359
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:03 ; elapsed = 00:01:07 . Memory (MB): peak = 935.484 ; gain = 839.359
 INFO: [HLS 200-10] Starting code transformations ...
-INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:15 ; elapsed = 00:01:18 . Memory (MB): peak = 934.945 ; gain = 838.773
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:13 ; elapsed = 00:01:20 . Memory (MB): peak = 935.484 ; gain = 839.359
 INFO: [HLS 200-10] Checking synthesizability ...
 INFO: [XFORM 203-602] Inlining function 'nnet::product::WAGE_binary<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_fixed<2, 0, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<5, 3, (ap_q_mode)5, (ap_o_mode)3, 0> >::product' into 'nnet::dense_resource_rf_leq_nin<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, config1_mult>' (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_conv2d_resource.h:83) automatically.
 INFO: [XFORM 203-602] Inlining function 'nnet::dense_resource<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, config1_mult>' into 'nnet::conv_2d_resource_cl<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, config1, config1_mult>' (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_conv2d_resource.h:376) automatically.
@@ -119,7 +140,7 @@ INFO: [XFORM 203-602] Inlining function '__hls_fptosi_double_i32' into 'nnet::co
 INFO: [XFORM 203-602] Inlining function 'nnet::product::WAGE_binary<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_fixed<2, -2, (ap_q_mode)5, (ap_o_mode)3, 0>, ap_fixed<2, -2, (ap_q_mode)5, (ap_o_mode)3, 0> >::product' into 'nnet::compute_layer<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_fixed<7, 3, (ap_q_mode)5, (ap_o_mode)3, 0>, config7>' (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_layer.h:114) automatically.
 INFO: [XFORM 203-602] Inlining function 'compute_layer5' into 'lenet5' (firmware/lenet5.cpp:97) automatically.
 INFO: [XFORM 203-602] Inlining function 'compute_layer6' into 'lenet5' (firmware/lenet5.cpp:101) automatically.
-INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:34 ; elapsed = 00:01:37 . Memory (MB): peak = 934.945 ; gain = 838.773
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:33 ; elapsed = 00:01:40 . Memory (MB): peak = 935.484 ; gain = 839.359
 INFO: [XFORM 203-502] Unrolling small iteration loop 'Loop-1.1.1' (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_conv2d_resource.h:331) in function 'nnet::im2col_2d_cl<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, config1>' automatically.
 INFO: [HLS 200-489] Unrolling loop 'Loop-1.1.1' (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_conv2d_resource.h:331) in function 'nnet::im2col_2d_cl<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, config1>' completely with a factor of 1.
 INFO: [XFORM 203-102] Partitioning array 'data.V' (firmware/lenet5.cpp:65) in dimension 3 automatically.
@@ -157,7 +178,7 @@ INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (C:/Users/ewei
 INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_layer.h:138:63) to (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_layer.h:138:55) in function 'nnet::compute_layer<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, config5_0>'... converting 5 basic blocks.
 INFO: [XFORM 203-11] Balancing expressions in function 'nnet::pooling2d_flatten<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, config4>' (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_pooling.h:12:9)...3 expression(s) balanced.
 INFO: [XFORM 203-11] Balancing expressions in function 'nnet::pooling2d<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, config2>' (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_pooling.h:12:9)...3 expression(s) balanced.
-INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:54 ; elapsed = 00:01:58 . Memory (MB): peak = 934.945 ; gain = 838.773
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:56 ; elapsed = 00:02:03 . Memory (MB): peak = 935.484 ; gain = 839.359
 WARNING: [XFORM 203-631] Renaming function 'nnet::pooling2d_flatten<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, config4>' to 'pooling2d_flatten' (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_pooling.h:12:9)
 WARNING: [XFORM 203-631] Renaming function 'nnet::pooling2d<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, config2>' to 'pooling2d' (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_pooling.h:12:9)
 WARNING: [XFORM 203-631] Renaming function 'nnet::im2col_2d_cl<ap_ufixed<1, 1, (ap_q_mode)1, (ap_o_mode)0, 0>, config3>' to 'im2col_2d_cl' (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_conv2d_resource.h:327:63)
@@ -221,7 +242,7 @@ INFO: [HLS 200-472] Inferring partial write operation for 'mult.V' (C:/Users/ewe
 INFO: [HLS 200-472] Inferring partial write operation for 'acc.V' (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_layer.h:123:9)
 INFO: [HLS 200-472] Inferring partial write operation for 'acc.V' (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_layer.h:133:6)
 INFO: [HLS 200-472] Inferring partial write operation for 'res.V' (C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/nnet_utils\nnet_layer.h:142:9)
-INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:16 ; elapsed = 00:02:20 . Memory (MB): peak = 934.945 ; gain = 838.773
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:01:20 ; elapsed = 00:02:27 . Memory (MB): peak = 935.484 ; gain = 839.359
 INFO: [HLS 200-10] Starting hardware synthesis ...
 INFO: [HLS 200-10] Synthesizing 'lenet5' ...
 WARNING: [SYN 201-103] Legalizing function name 'im2col_2d_cl.1' to 'im2col_2d_cl_1'.
@@ -239,253 +260,253 @@ INFO: [HLS 200-42] -- Implementing module 'im2col_2d_cl_1'
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 140.674 seconds; current allocated memory: 437.621 MB.
+INFO: [HLS 200-111]  Elapsed time: 147.492 seconds; current allocated memory: 437.622 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.194 seconds; current allocated memory: 437.796 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.186 seconds; current allocated memory: 437.797 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'dense_resource_rf_le_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.262 seconds; current allocated memory: 438.091 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.236 seconds; current allocated memory: 438.092 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.254 seconds; current allocated memory: 438.383 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.232 seconds; current allocated memory: 438.384 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'conv_2d_resource_cl_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.299 seconds; current allocated memory: 438.637 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.307 seconds; current allocated memory: 438.638 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.221 seconds; current allocated memory: 438.807 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.231 seconds; current allocated memory: 438.808 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'pooling2d' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.314 seconds; current allocated memory: 439.301 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.316 seconds; current allocated memory: 439.286 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.293 seconds; current allocated memory: 439.741 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.298 seconds; current allocated memory: 439.726 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'im2col_2d_cl' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.387 seconds; current allocated memory: 439.978 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.401 seconds; current allocated memory: 439.964 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.186 seconds; current allocated memory: 440.178 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.186 seconds; current allocated memory: 440.163 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'dense_resource_rf_le' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.257 seconds; current allocated memory: 440.476 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.246 seconds; current allocated memory: 440.461 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.233 seconds; current allocated memory: 440.773 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.243 seconds; current allocated memory: 440.758 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'conv_2d_resource_cl' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.285 seconds; current allocated memory: 440.946 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.313 seconds; current allocated memory: 440.947 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.216 seconds; current allocated memory: 441.135 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.226 seconds; current allocated memory: 441.136 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'pooling2d_flatten' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.284 seconds; current allocated memory: 441.555 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.298 seconds; current allocated memory: 441.556 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.283 seconds; current allocated memory: 441.959 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.287 seconds; current allocated memory: 441.960 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'compute_layer_6' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.394 seconds; current allocated memory: 442.361 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.39 seconds; current allocated memory: 442.362 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.29 seconds; current allocated memory: 442.684 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.285 seconds; current allocated memory: 442.684 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'compute_layer_5' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.358 seconds; current allocated memory: 443.038 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.352 seconds; current allocated memory: 443.023 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.264 seconds; current allocated memory: 443.363 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.285 seconds; current allocated memory: 443.349 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'compute_layer_4' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.338 seconds; current allocated memory: 443.702 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.349 seconds; current allocated memory: 443.703 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.284 seconds; current allocated memory: 444.029 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.282 seconds; current allocated memory: 444.030 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'compute_layer_3' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.35 seconds; current allocated memory: 444.407 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.361 seconds; current allocated memory: 444.408 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.279 seconds; current allocated memory: 444.756 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.266 seconds; current allocated memory: 444.757 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'compute_layer_2' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.369 seconds; current allocated memory: 445.119 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.317 seconds; current allocated memory: 445.120 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.248 seconds; current allocated memory: 445.458 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.24 seconds; current allocated memory: 445.459 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'compute_layer_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.303 seconds; current allocated memory: 445.828 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.329 seconds; current allocated memory: 445.829 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.246 seconds; current allocated memory: 446.173 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.246 seconds; current allocated memory: 446.174 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'compute_layer' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.311 seconds; current allocated memory: 446.510 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.321 seconds; current allocated memory: 446.510 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.236 seconds; current allocated memory: 446.870 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.241 seconds; current allocated memory: 446.870 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'compute_layer_7' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.293 seconds; current allocated memory: 447.131 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.314 seconds; current allocated memory: 447.132 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 0.203 seconds; current allocated memory: 447.405 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.214 seconds; current allocated memory: 447.406 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-42] -- Implementing module 'lenet5' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SCHED 204-11] Starting scheduling ...
 INFO: [SCHED 204-11] Finished scheduling.
-INFO: [HLS 200-111]  Elapsed time: 0.271 seconds; current allocated memory: 447.737 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.268 seconds; current allocated memory: 447.738 MB.
 INFO: [BIND 205-100] Starting micro-architecture generation ...
 INFO: [BIND 205-101] Performing variable lifetime analysis.
 INFO: [BIND 205-101] Exploring resource sharing.
 INFO: [BIND 205-101] Binding ...
 INFO: [BIND 205-100] Finished micro-architecture generation.
-INFO: [HLS 200-111]  Elapsed time: 2.143 seconds; current allocated memory: 449.495 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.925 seconds; current allocated memory: 449.496 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'im2col_2d_cl_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'im2col_2d_cl_1'.
-INFO: [HLS 200-111]  Elapsed time: 0.909 seconds; current allocated memory: 450.283 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.822 seconds; current allocated memory: 450.300 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'dense_resource_rf_le_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SYN 201-210] Renamed object name 'dense_resource_rf_le_1_w1_V' to 'dense_resource_rfbkb' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'dense_resource_rf_le_1_acc_V' to 'dense_resource_rfcud' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'dense_resource_rf_le_1'.
-INFO: [HLS 200-111]  Elapsed time: 0.434 seconds; current allocated memory: 451.603 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.451 seconds; current allocated memory: 451.603 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'conv_2d_resource_cl_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SYN 201-210] Renamed object name 'conv_2d_resource_cl_1_data_col_V' to 'conv_2d_resource_dEe' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'conv_2d_resource_cl_1_res_V_assign' to 'conv_2d_resource_eOg' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_2d_resource_cl_1'.
-INFO: [HLS 200-111]  Elapsed time: 0.702 seconds; current allocated memory: 453.292 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.718 seconds; current allocated memory: 453.309 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'pooling2d' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'pooling2d'.
-INFO: [HLS 200-111]  Elapsed time: 0.495 seconds; current allocated memory: 454.717 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.497 seconds; current allocated memory: 454.749 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'im2col_2d_cl' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'im2col_2d_cl'.
-INFO: [HLS 200-111]  Elapsed time: 1.045 seconds; current allocated memory: 457.072 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.074 seconds; current allocated memory: 457.089 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'dense_resource_rf_le' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SYN 201-210] Renamed object name 'dense_resource_rf_le_w3_V' to 'dense_resource_rffYi' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'dense_resource_rf_le_acc_V' to 'dense_resource_rfg8j' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'dense_resource_rf_le'.
-INFO: [HLS 200-111]  Elapsed time: 0.547 seconds; current allocated memory: 458.450 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.533 seconds; current allocated memory: 458.466 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'conv_2d_resource_cl' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SYN 201-210] Renamed object name 'conv_2d_resource_cl_data_col_V' to 'conv_2d_resource_hbi' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'conv_2d_resource_cl_res_V_assign' to 'conv_2d_resource_ibs' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'conv_2d_resource_cl'.
-INFO: [HLS 200-111]  Elapsed time: 0.743 seconds; current allocated memory: 460.093 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.757 seconds; current allocated memory: 460.110 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'pooling2d_flatten' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [RTGEN 206-100] Finished creating RTL model for 'pooling2d_flatten'.
-INFO: [HLS 200-111]  Elapsed time: 0.467 seconds; current allocated memory: 461.426 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.475 seconds; current allocated memory: 461.442 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'compute_layer_6' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -493,7 +514,7 @@ INFO: [SYN 201-210] Renamed object name 'compute_layer_6_w5_0_V' to 'compute_lay
 INFO: [SYN 201-210] Renamed object name 'compute_layer_6_mult_V' to 'compute_layer_6_mkbM' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'compute_layer_6_acc_V' to 'compute_layer_6_albW' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'compute_layer_6'.
-INFO: [HLS 200-111]  Elapsed time: 1.021 seconds; current allocated memory: 463.893 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.997 seconds; current allocated memory: 463.910 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'compute_layer_5' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -501,7 +522,7 @@ INFO: [SYN 201-210] Renamed object name 'compute_layer_5_w5_1_V' to 'compute_lay
 INFO: [SYN 201-210] Renamed object name 'compute_layer_5_mult_V' to 'compute_layer_5_mncg' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'compute_layer_5_acc_V' to 'compute_layer_5_aocq' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'compute_layer_5'.
-INFO: [HLS 200-111]  Elapsed time: 0.844 seconds; current allocated memory: 465.916 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.887 seconds; current allocated memory: 465.948 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'compute_layer_4' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -509,7 +530,7 @@ INFO: [SYN 201-210] Renamed object name 'compute_layer_4_w5_2_V' to 'compute_lay
 INFO: [SYN 201-210] Renamed object name 'compute_layer_4_mult_V' to 'compute_layer_4_mqcK' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'compute_layer_4_acc_V' to 'compute_layer_4_arcU' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'compute_layer_4'.
-INFO: [HLS 200-111]  Elapsed time: 0.879 seconds; current allocated memory: 467.875 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.972 seconds; current allocated memory: 467.908 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'compute_layer_3' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -517,7 +538,7 @@ INFO: [SYN 201-210] Renamed object name 'compute_layer_3_w5_3_V' to 'compute_lay
 INFO: [SYN 201-210] Renamed object name 'compute_layer_3_mult_V' to 'compute_layer_3_mtde' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'compute_layer_3_acc_V' to 'compute_layer_3_audo' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'compute_layer_3'.
-INFO: [HLS 200-111]  Elapsed time: 0.888 seconds; current allocated memory: 469.973 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.978 seconds; current allocated memory: 470.005 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'compute_layer_2' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -525,7 +546,7 @@ INFO: [SYN 201-210] Renamed object name 'compute_layer_2_w6_0_V' to 'compute_lay
 INFO: [SYN 201-210] Renamed object name 'compute_layer_2_mult_V' to 'compute_layer_2_mwdI' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'compute_layer_2_acc_V' to 'compute_layer_2_axdS' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'compute_layer_2'.
-INFO: [HLS 200-111]  Elapsed time: 0.962 seconds; current allocated memory: 472.096 MB.
+INFO: [HLS 200-111]  Elapsed time: 1.016 seconds; current allocated memory: 472.128 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'compute_layer_1' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -533,14 +554,14 @@ INFO: [SYN 201-210] Renamed object name 'compute_layer_1_w6_1_V' to 'compute_lay
 INFO: [SYN 201-210] Renamed object name 'compute_layer_1_mult_V' to 'compute_layer_1_mzec' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'compute_layer_1_acc_V' to 'compute_layer_1_aAem' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'compute_layer_1'.
-INFO: [HLS 200-111]  Elapsed time: 0.931 seconds; current allocated memory: 474.151 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.972 seconds; current allocated memory: 474.183 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'compute_layer' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [SYN 201-210] Renamed object name 'compute_layer_w6_2_V' to 'compute_layer_w6_Bew' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'compute_layer_mult_V' to 'compute_layer_mulCeG' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'compute_layer'.
-INFO: [HLS 200-111]  Elapsed time: 0.981 seconds; current allocated memory: 476.238 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.99 seconds; current allocated memory: 476.286 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'compute_layer_7' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -548,7 +569,7 @@ INFO: [SYN 201-210] Renamed object name 'compute_layer_7_w7_V' to 'compute_layer
 INFO: [SYN 201-210] Renamed object name 'compute_layer_7_mult_V' to 'compute_layer_7_mEe0' due to the length limit 20
 INFO: [SYN 201-210] Renamed object name 'compute_layer_7_acc_V' to 'compute_layer_7_aFfa' due to the length limit 20
 INFO: [RTGEN 206-100] Finished creating RTL model for 'compute_layer_7'.
-INFO: [HLS 200-111]  Elapsed time: 0.93 seconds; current allocated memory: 478.131 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.95 seconds; current allocated memory: 478.163 MB.
 INFO: [HLS 200-10] ----------------------------------------------------------------
 INFO: [HLS 200-10] -- Generating RTL for module 'lenet5' 
 INFO: [HLS 200-10] ----------------------------------------------------------------
@@ -566,7 +587,7 @@ INFO: [RTGEN 206-500] Setting interface mode on port 'lenet5/nine_V' to 'ap_vld'
 INFO: [RTGEN 206-500] Setting interface mode on port 'lenet5/max_V' to 'ap_vld'.
 INFO: [RTGEN 206-500] Setting interface mode on function 'lenet5' to 'ap_ctrl_hs'.
 INFO: [RTGEN 206-100] Finished creating RTL model for 'lenet5'.
-INFO: [HLS 200-111]  Elapsed time: 0.957 seconds; current allocated memory: 480.517 MB.
+INFO: [HLS 200-111]  Elapsed time: 0.997 seconds; current allocated memory: 480.549 MB.
 INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
 INFO: [HLS 200-789] **** Estimated Fmax: 149.12 MHz
 INFO: [RTMG 210-279] Implementing memory 'dense_resource_rfbkb_rom' using distributed ROMs.
@@ -603,7 +624,7 @@ INFO: [RTMG 210-278] Implementing memory 'lenet5_layer4_out_V_ram (RAM)' using d
 INFO: [RTMG 210-278] Implementing memory 'lenet5_layer5_out_V_ram (RAM)' using distributed RAMs.
 INFO: [RTMG 210-278] Implementing memory 'lenet5_layer6_out_V_ram (RAM)' using distributed RAMs.
 INFO: [RTMG 210-278] Implementing memory 'lenet5_res_ram (RAM)' using distributed RAMs.
-INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:37 ; elapsed = 00:02:55 . Memory (MB): peak = 934.945 ; gain = 838.773
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:40 ; elapsed = 00:03:02 . Memory (MB): peak = 935.484 ; gain = 839.359
 INFO: [VHDL 208-304] Generating VHDL RTL for lenet5.
 INFO: [VLOG 209-307] Generating Verilog RTL for lenet5.
 ***** C/RTL SIMULATION *****
@@ -625,7 +646,28 @@ INFO: [COSIM 212-302] Starting C TB testing ...
 7 1 9 9
 8 1 5 5
 9 1 9 9
-10
+10 1 0 0
+11 1 6 6
+12 1 9 9
+13 1 0 0
+14 1 1 1
+15 1 5 5
+16 1 9 9
+17 1 7 7
+18 0 5 3
+19 1 4 4
+20 1 9 9
+21 1 6 6
+22 1 6 6
+23 1 5 5
+24 1 4 4
+25 1 0 0
+26 1 7 7
+27 1 4 4
+28 1 0 0
+29 1 1 1
+30 1 3 3
+30
 INFO: [COSIM 212-333] Generating C post check test bench ...
 INFO: [COSIM 212-12] Generating RTL test bench ...
 INFO: [COSIM 212-1] *** C/RTL co-simulation file generation completed. ***
@@ -881,8 +923,8 @@ Built simulation snapshot lenet5
     ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 
 source C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/keras-to-hls/lenet5-proj/lenet5_prj/solution1/sim/verilog/xsim.dir/lenet5/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-186] 'C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/keras-to-hls/lenet5-proj/lenet5_prj/solution1/sim/verilog/xsim.dir/lenet5/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Fri Feb 25 13:58:14 2022. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2020.1/doc/webtalk_introduction.html.
-INFO: [Common 17-206] Exiting Webtalk at Fri Feb 25 13:58:14 2022...
+INFO: [Common 17-186] 'C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/keras-to-hls/lenet5-proj/lenet5_prj/solution1/sim/verilog/xsim.dir/lenet5/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Tue Mar  1 12:21:40 2022. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2020.1/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Tue Mar  1 12:21:40 2022...
 
 ****** xsim v2020.1 (64-bit)
   **** SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
@@ -1007,22 +1049,43 @@ WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of o
 //
 // RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
 ////////////////////////////////////////////////////////////////////////////////////
-// RTL Simulation : 0 / 10 [0.00%] @ "125000"
-// RTL Simulation : 1 / 10 [100.00%] @ "5486135000"
-// RTL Simulation : 2 / 10 [100.00%] @ "10972135000"
-// RTL Simulation : 3 / 10 [100.00%] @ "16458135000"
-// RTL Simulation : 4 / 10 [100.00%] @ "21944135000"
-// RTL Simulation : 5 / 10 [100.00%] @ "27430135000"
-// RTL Simulation : 6 / 10 [100.00%] @ "32916135000"
-// RTL Simulation : 7 / 10 [100.00%] @ "38402135000"
-// RTL Simulation : 8 / 10 [100.00%] @ "43888135000"
-// RTL Simulation : 9 / 10 [100.00%] @ "49374135000"
-// RTL Simulation : 10 / 10 [100.00%] @ "54860135000"
+// RTL Simulation : 0 / 31 [0.00%] @ "125000"
+// RTL Simulation : 1 / 31 [100.00%] @ "5486135000"
+// RTL Simulation : 2 / 31 [100.00%] @ "10972135000"
+// RTL Simulation : 3 / 31 [100.00%] @ "16458135000"
+// RTL Simulation : 4 / 31 [100.00%] @ "21944135000"
+// RTL Simulation : 5 / 31 [100.00%] @ "27430135000"
+// RTL Simulation : 6 / 31 [100.00%] @ "32916135000"
+// RTL Simulation : 7 / 31 [100.00%] @ "38402135000"
+// RTL Simulation : 8 / 31 [100.00%] @ "43888135000"
+// RTL Simulation : 9 / 31 [100.00%] @ "49374135000"
+// RTL Simulation : 10 / 31 [100.00%] @ "54860135000"
+// RTL Simulation : 11 / 31 [100.00%] @ "60346135000"
+// RTL Simulation : 12 / 31 [100.00%] @ "65832135000"
+// RTL Simulation : 13 / 31 [100.00%] @ "71318135000"
+// RTL Simulation : 14 / 31 [100.00%] @ "76804135000"
+// RTL Simulation : 15 / 31 [100.00%] @ "82290135000"
+// RTL Simulation : 16 / 31 [100.00%] @ "87776135000"
+// RTL Simulation : 17 / 31 [100.00%] @ "93262135000"
+// RTL Simulation : 18 / 31 [100.00%] @ "98748135000"
+// RTL Simulation : 19 / 31 [100.00%] @ "104234135000"
+// RTL Simulation : 20 / 31 [100.00%] @ "109720135000"
+// RTL Simulation : 21 / 31 [100.00%] @ "115206135000"
+// RTL Simulation : 22 / 31 [100.00%] @ "120692135000"
+// RTL Simulation : 23 / 31 [100.00%] @ "126178135000"
+// RTL Simulation : 24 / 31 [100.00%] @ "131664135000"
+// RTL Simulation : 25 / 31 [100.00%] @ "137150135000"
+// RTL Simulation : 26 / 31 [100.00%] @ "142636135000"
+// RTL Simulation : 27 / 31 [100.00%] @ "148122135000"
+// RTL Simulation : 28 / 31 [100.00%] @ "153608135000"
+// RTL Simulation : 29 / 31 [100.00%] @ "159094135000"
+// RTL Simulation : 30 / 31 [100.00%] @ "164580135000"
+// RTL Simulation : 31 / 31 [100.00%] @ "170066135000"
 ////////////////////////////////////////////////////////////////////////////////////
-$finish called at time : 54860175 ns : File "C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/keras-to-hls/lenet5-proj/lenet5_prj/solution1/sim/verilog/lenet5.autotb.v" Line 891
-run: Time (s): cpu = 00:00:52 ; elapsed = 00:02:57 . Memory (MB): peak = 969.043 ; gain = 0.000
+$finish called at time : 170066175 ns : File "C:/Users/eweinstock6/Documents/hls4ml/scripts/sherylll/keras-to-hls/lenet5-proj/lenet5_prj/solution1/sim/verilog/lenet5.autotb.v" Line 891
+run: Time (s): cpu = 00:05:14 ; elapsed = 00:09:32 . Memory (MB): peak = 968.977 ; gain = 0.000
 ## quit
-INFO: [Common 17-206] Exiting xsim at Fri Feb 25 14:01:19 2022...
+INFO: [Common 17-206] Exiting xsim at Tue Mar  1 12:31:22 2022...
 INFO: [COSIM 212-316] Starting C post checking ...
 0 1 7 7
 1 1 2 2
@@ -1034,7 +1097,28 @@ INFO: [COSIM 212-316] Starting C post checking ...
 7 1 9 9
 8 1 5 5
 9 1 9 9
-10
+10 1 0 0
+11 1 6 6
+12 1 9 9
+13 1 0 0
+14 1 1 1
+15 1 5 5
+16 1 9 9
+17 1 7 7
+18 0 5 3
+19 1 4 4
+20 1 9 9
+21 1 6 6
+22 1 6 6
+23 1 5 5
+24 1 4 4
+25 1 0 0
+26 1 7 7
+27 1 4 4
+28 1 0 0
+29 1 1 1
+30 1 3 3
+30
 INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
 ***** EXPORT IP *****
 INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
@@ -1048,6 +1132,6 @@ source run_ippack.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.1/data/ip'.
-INFO: [Common 17-206] Exiting Vivado at Fri Feb 25 14:01:37 2022...
-INFO: [HLS 200-112] Total elapsed time: 457.969 seconds; peak allocated memory: 480.517 MB.
-INFO: [Common 17-206] Exiting vivado_hls at Fri Feb 25 14:01:38 2022...
+INFO: [Common 17-206] Exiting Vivado at Tue Mar  1 12:31:42 2022...
+INFO: [HLS 200-112] Total elapsed time: 850.585 seconds; peak allocated memory: 480.549 MB.
+INFO: [Common 17-206] Exiting vivado_hls at Tue Mar  1 12:31:42 2022...

@@ -29,9 +29,9 @@
 
 #define IMAGE_WIDTH 28
 #ifdef C_COSIM
-  #define TEST_SIZE 9
+  #define TEST_SIZE 31
 #else
-  #define TEST_SIZE 100 // full test set has 10000 samples
+  #define TEST_SIZE 31 // full test set has 10000 samples
 #endif
 
 
