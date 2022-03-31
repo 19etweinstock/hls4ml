@@ -51,7 +51,7 @@ void lenet5(
 		  input_t* input,
 		  result_t* zero, result_t* one, result_t* two, result_t* three, result_t* four,
           result_t* five, result_t* six, result_t* seven, result_t* eight, result_t* nine,
-          max_t* max
+          max_t* max, last_layer_t* last_layer, one_count_t* one_count
         )
 {
 
@@ -99,6 +99,15 @@ void lenet5(
     layer_t layer6_out[N_LAYER_6];
     // // #pragma HLS ARRAY_PARTITION variable=layer6_out complete dim=0
     compute_layer6(layer5_out, layer6_out);
+
+    *last_layer = 0;
+    *one_count = 0;
+
+    // possibly change order to match scan chain
+    for (int i = 83; i >= 0; i--){
+        *last_layer = (*last_layer << 1) + layer6_out[i];
+        *one_count += layer6_out[i];
+    }
 
     result_t res[N_OUTPUTS];
     nnet::compute_layer<layer_t, result_t, config7>(layer6_out, res, w7, b7);

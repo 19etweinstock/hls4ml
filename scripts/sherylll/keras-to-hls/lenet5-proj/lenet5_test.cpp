@@ -576,8 +576,10 @@ int main(int argc, char **argv)
 
 				result_t zero, one, two, three, four, five, six, seven, eight, nine;
 				max_t max;
+				last_layer_t last_layer;
+				one_count_t one_count;
 
-				lenet5(&input_str, &zero, &one, &two, &three, &four, &five, &six, &seven, &eight, &nine, &max);
+				lenet5(&input_str, &zero, &one, &two, &three, &four, &five, &six, &seven, &eight, &nine, &max, &last_layer, &one_count);
 
 				// int y_pred = max_likelihood(probs);
 				std::cout << im << " " << (max == y_test)<< " " << max << " " << y_test << std::endl;

@@ -24,6 +24,8 @@ typedef ap_uint<784> input_t;
 typedef ap_ufixed<1,1, AP_RND_ZERO, AP_SAT> layer_t;
 typedef ap_fixed<7,3> result_t;
 typedef ap_uint<4> max_t;
+typedef ap_uint<84> last_layer_t;
+typedef ap_uint<8> one_count_t;
 #define IN_HEIGHT_1 28
 #define IN_WIDTH_1 28
 #define N_CHAN_1 1

@@ -30,7 +30,8 @@
 void lenet5(
       input_t* input,
       result_t* zero, result_t* one, result_t* two, result_t* three, result_t* four,
-      result_t* five, result_t* six, result_t* seven, result_t* eight, result_t* nine, max_t* max);
+      result_t* five, result_t* six, result_t* seven, result_t* eight, result_t* nine,
+      max_t* max, last_layer_t* last_layer, one_count_t* one_count);
 
 void compute_layer5(layer_t layer4_out[N_LAYER_4], layer_t logits5[N_LAYER_5]);
 void compute_layer6(layer_t layer5_out[N_LAYER_5], layer_t logits6[N_LAYER_6]);
